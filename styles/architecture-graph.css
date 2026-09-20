@@ -1,0 +1,670 @@
+/**
+ * styles/architecture-graph.css
+ * Production styling for WebDev AI Studio Architecture Graph & AI Context Graph Workspace
+ */
+
+.architecture-graph-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: calc(100vh - 60px);
+  overflow: hidden;
+  background: var(--bg-primary, #0a0d14);
+  color: var(--text-primary, #f1f5f9);
+  font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+}
+
+/* --- Top Toolbar --- */
+.arch-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 18px;
+  background: var(--bg-secondary, #111726);
+  border-bottom: 1px solid var(--border-color, #1e293b);
+  gap: 12px;
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.arch-toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.arch-title-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.arch-title {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.arch-title svg {
+  width: 18px;
+  height: 18px;
+  color: var(--accent-color, #6366f1);
+}
+
+.arch-tagline {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.arch-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 9px;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 999px;
+  font-size: 11px;
+  color: #34d399;
+  font-weight: 500;
+}
+
+.arch-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+}
+
+.arch-toolbar-center {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  max-width: 600px;
+}
+
+.arch-search-wrap {
+  position: relative;
+  flex: 1;
+}
+
+.arch-search-wrap svg {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  color: #64748b;
+}
+
+.arch-search-input {
+  width: 100%;
+  padding: 6px 12px 6px 32px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid var(--border-color, #334155);
+  border-radius: 6px;
+  color: #f8fafc;
+  font-size: 12px;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.arch-search-input:focus {
+  border-color: #6366f1;
+  background: rgba(15, 23, 42, 0.9);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+.arch-filter-select {
+  padding: 6px 10px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid var(--border-color, #334155);
+  border-radius: 6px;
+  color: #e2e8f0;
+  font-size: 12px;
+  outline: none;
+  cursor: pointer;
+}
+
+.arch-toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.arch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  color: #cbd5e1;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.arch-btn:hover {
+  background: #334155;
+  color: #fff;
+}
+
+.arch-btn-primary {
+  background: #4f46e5;
+  border-color: #6366f1;
+  color: #fff;
+}
+
+.arch-btn-primary:hover {
+  background: #4338ca;
+}
+
+.arch-btn-accent {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  border-color: #8b5cf6;
+  color: #fff;
+}
+
+.arch-btn-accent:hover {
+  background: linear-gradient(135deg, #4338ca, #6d28d9);
+}
+
+.arch-btn-icon {
+  padding: 6px 8px;
+}
+
+/* --- Main Layout Grid --- */
+.arch-body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* --- Left Subsystem & Hierarchy Sidebar --- */
+.arch-sidebar-left {
+  width: 240px;
+  background: var(--bg-secondary, #0e1422);
+  border-right: 1px solid var(--border-color, #1e293b);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  flex-shrink: 0;
+  z-index: 5;
+}
+
+.arch-sidebar-section {
+  padding: 14px;
+  border-bottom: 1px solid #1e293b;
+}
+
+.arch-section-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748b;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.arch-subsystem-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+  color: #cbd5e1;
+  transition: background 0.15s;
+  margin-bottom: 2px;
+}
+
+.arch-subsystem-item:hover, .arch-subsystem-item.active {
+  background: rgba(99, 102, 241, 0.15);
+  color: #fff;
+}
+
+.arch-subsystem-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.arch-subsystem-count {
+  font-size: 10px;
+  color: #64748b;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 1px 6px;
+  border-radius: 99px;
+}
+
+/* --- Center Graph Visualizer Canvas --- */
+.arch-graph-center {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 50%, #131929 0%, #0a0d14 100%);
+  cursor: grab;
+}
+
+.arch-graph-center:active {
+  cursor: grabbing;
+}
+
+.arch-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.arch-canvas-controls {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 6px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+
+.arch-canvas-btn {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: #cbd5e1;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.arch-canvas-btn:hover {
+  background: #334155;
+  color: #fff;
+}
+
+.arch-hover-tooltip {
+  position: absolute;
+  pointer-events: none;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid #475569;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+  z-index: 20;
+  display: none;
+  max-width: 280px;
+}
+
+.arch-path-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(99, 102, 241, 0.2);
+  border: 1px solid #6366f1;
+  color: #a5b4fc;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  display: none;
+  align-items: center;
+  gap: 8px;
+  z-index: 10;
+}
+
+/* --- Right Inspector Panel --- */
+.arch-sidebar-right {
+  width: 340px;
+  background: var(--bg-secondary, #0e1422);
+  border-left: 1px solid var(--border-color, #1e293b);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  flex-shrink: 0;
+  z-index: 5;
+}
+
+.arch-inspector-header {
+  padding: 14px;
+  border-bottom: 1px solid #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.arch-inspector-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.arch-node-badge {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.arch-inspector-body {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.arch-card {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.arch-card-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748b;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.arch-prop-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.arch-prop-label {
+  color: #94a3b8;
+}
+
+.arch-prop-value {
+  color: #f1f5f9;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  max-width: 180px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.arch-conn-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 140px;
+  overflow-y: auto;
+}
+
+.arch-conn-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 8px;
+  background: rgba(30, 41, 59, 0.4);
+  border-radius: 4px;
+  font-size: 11px;
+  color: #cbd5e1;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.arch-conn-item:hover {
+  background: rgba(99, 102, 241, 0.2);
+  color: #fff;
+}
+
+.arch-impact-box {
+  border-radius: 6px;
+  padding: 10px;
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.risk-CRITICAL {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #f87171;
+}
+
+.risk-HIGH {
+  background: rgba(249, 115, 22, 0.15);
+  border: 1px solid rgba(249, 115, 22, 0.4);
+  color: #fb923c;
+}
+
+.risk-MEDIUM {
+  background: rgba(234, 179, 8, 0.15);
+  border: 1px solid rgba(234, 179, 8, 0.4);
+  color: #facc15;
+}
+
+.risk-LOW {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #34d399;
+}
+
+/* --- Bottom AI Context Graph Drawer --- */
+.arch-bottom-drawer {
+  background: var(--bg-secondary, #0c121e);
+  border-top: 1px solid var(--border-color, #1e293b);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  transition: height 0.25s ease;
+  z-index: 15;
+  height: 300px;
+}
+
+.arch-bottom-drawer.collapsed {
+  height: 42px;
+}
+
+.arch-drawer-header {
+  height: 42px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  background: rgba(15, 23, 42, 0.8);
+  border-bottom: 1px solid #1e293b;
+}
+
+.arch-drawer-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.arch-drawer-badge {
+  padding: 2px 7px;
+  background: rgba(99, 102, 241, 0.2);
+  border: 1px solid #6366f1;
+  color: #a5b4fc;
+  border-radius: 99px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.arch-drawer-content {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.arch-drawer-left {
+  width: 420px;
+  padding: 14px;
+  border-right: 1px solid #1e293b;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+}
+
+.arch-prompt-textarea {
+  width: 100%;
+  height: 60px;
+  padding: 8px 10px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid #334155;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 12px;
+  resize: none;
+  outline: none;
+}
+
+.arch-prompt-textarea:focus {
+  border-color: #6366f1;
+}
+
+.arch-budget-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.arch-budget-label {
+  font-size: 11px;
+  color: #94a3b8;
+  margin-right: 4px;
+}
+
+.arch-budget-pill {
+  padding: 4px 8px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  font-size: 11px;
+  color: #cbd5e1;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.arch-budget-pill:hover, .arch-budget-pill.active {
+  background: #4f46e5;
+  border-color: #6366f1;
+  color: #fff;
+}
+
+.arch-scorecard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid #1e293b;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.arch-score-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.arch-score-title {
+  font-size: 10px;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.arch-score-value {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.arch-score-reduction {
+  color: #34d399;
+}
+
+.arch-drawer-right {
+  flex: 1;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+}
+
+.arch-response-box {
+  flex: 1;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid #1e293b;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #e2e8f0;
+  overflow-y: auto;
+  font-family: var(--font-sans, inherit);
+  white-space: pre-wrap;
+}
+
+.arch-snippets-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 140px;
+  overflow-y: auto;
+}
+
+.arch-snippet-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 8px;
+  background: rgba(30, 41, 59, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  font-size: 11px;
+}
+
+.arch-snippet-tokens {
+  font-size: 10px;
+  color: #38bdf8;
+}

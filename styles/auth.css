@@ -1,0 +1,306 @@
+/* styles/auth.css - Authentication Modal & User Profile Styles */
+
+.user-profile-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 10px;
+  background: var(--surface-secondary, #f1f5f9);
+  border: 1px solid var(--border-subtle, #e2e8f0);
+  border-radius: var(--radius-sm, 4px);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary, #0f172a);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.user-profile-btn:hover {
+  background: var(--surface-hover, #e2e8f0);
+  border-color: var(--border-focus, #cbd5e1);
+}
+
+.user-avatar-tiny {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--accent-primary, #2563eb);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* Auth Modal */
+.auth-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 16px;
+  animation: fadeIn 0.15s ease;
+}
+
+.auth-modal-card {
+  background: var(--surface-primary, #ffffff);
+  border: 1px solid var(--border-subtle, #e2e8f0);
+  border-radius: 14px;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  animation: slideUp 0.18s ease;
+}
+
+.auth-modal-header {
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--border-subtle, #e2e8f0);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.auth-modal-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-primary, #0f172a);
+  margin: 0;
+}
+
+.auth-tabs {
+  display: flex;
+  background: var(--surface-secondary, #f8fafc);
+  padding: 4px;
+  gap: 4px;
+  border-bottom: 1px solid var(--border-subtle, #e2e8f0);
+}
+
+.auth-tab-btn {
+  flex: 1;
+  padding: 8px 12px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary, #64748b);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.auth-tab-btn.active {
+  background: #ffffff;
+  color: var(--accent-primary, #2563eb);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  font-weight: 600;
+}
+
+.auth-modal-body {
+  padding: 24px;
+}
+
+.auth-form-group {
+  margin-bottom: 16px;
+}
+
+.auth-form-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary, #1e293b);
+  margin-bottom: 6px;
+}
+
+.auth-form-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-subtle, #cbd5e1);
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--text-primary, #0f172a);
+  background: #ffffff;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  box-sizing: border-box;
+}
+
+.auth-form-input:focus {
+  outline: none;
+  border-color: var(--accent-primary, #2563eb);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.btn-auth-primary {
+  width: 100%;
+  padding: 10px 16px;
+  background: var(--accent-primary, #2563eb);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-auth-primary:hover {
+  background: #1d4ed8;
+}
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 18px 0;
+  color: var(--text-muted, #94a3b8);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid var(--border-subtle, #e2e8f0);
+}
+
+.auth-divider span {
+  padding: 0 10px;
+}
+
+.btn-google-login {
+  width: 100%;
+  padding: 10px 16px;
+  background: #ffffff;
+  border: 1px solid var(--border-subtle, #cbd5e1);
+  border-radius: 8px;
+  color: #1e293b;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.15s ease;
+}
+
+.btn-google-login:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+}
+
+.auth-alert {
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  margin-bottom: 16px;
+  display: none;
+}
+
+.auth-alert-error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+}
+
+.auth-alert-success {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #166534;
+}
+
+/* User profile card in modal when logged in */
+.profile-card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--surface-secondary, #f8fafc);
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid var(--border-subtle, #e2e8f0);
+  margin-bottom: 16px;
+}
+
+.profile-field-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+
+.profile-field-label {
+  color: var(--text-secondary, #64748b);
+}
+
+.profile-field-value {
+  font-weight: 500;
+  color: var(--text-primary, #0f172a);
+}
+
+/* Dashboard Metric Cards */
+.dashboard-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.dash-metric-card {
+  background: var(--surface-primary, #ffffff);
+  border: 1px solid var(--border-subtle, #e2e8f0);
+  border-radius: 12px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.dash-metric-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.dash-metric-value {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-primary, #0f172a);
+  font-family: var(--font-mono, monospace);
+  line-height: 1.1;
+}
+
+.dash-metric-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary, #64748b);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.dash-metric-meta {
+  font-size: 11px;
+  color: var(--text-muted, #94a3b8);
+  margin-top: 4px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(12px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}

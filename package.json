@@ -1,0 +1,21 @@
+{
+  "name": "testing-ai",
+  "version": "1.0.0",
+  "description": "Local development project for testing AI",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "acorn": "^8.18.0",
+    "acorn-walk": "^8.3.5",
+    "bcryptjs": "^3.0.3",
+    "better-sqlite3": "^13.0.3",
+    "playwright": "^1.63.0",
+    "uuid": "^14.0.2"
+  }
+}

@@ -1,0 +1,2464 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-accent="blue">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebDev AI Studio</title>
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="/styles/home.css">
+  <link rel="stylesheet" href="/styles/responsive-tester.css">
+  <link rel="stylesheet" href="/styles/api-tester.css">
+  <link rel="stylesheet" href="/styles/automated-qa.css">
+  <link rel="stylesheet" href="/styles/seo-audit.css">
+  <link rel="stylesheet" href="/styles/auth.css">
+  <link rel="stylesheet" href="/styles/design-to-code.css">
+  <link rel="stylesheet" href="/styles/profile.css">
+  <link rel="stylesheet" href="/styles/schema-generator.css">
+  <link rel="stylesheet" href="/styles/visual-css-engineer.css">
+  <link rel="stylesheet" href="/styles/acf-architect.css">
+  <link rel="stylesheet" href="/styles/architecture-graph.css">
+  <script>
+    (function() {
+      try {
+        if (localStorage.getItem('webdev_sidebar_collapsed') === 'true' && window.innerWidth > 820) {
+          document.documentElement.classList.add('sidebar-is-collapsed');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar Backdrop for Mobile -->
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+    <!-- Sidebar Floating Tooltip -->
+    <div id="sidebarFloatingTooltip" class="sidebar-floating-tooltip" role="tooltip" aria-hidden="true"></div>
+
+    <!-- Left Sidebar -->
+    <aside class="app-sidebar" id="appSidebar" aria-label="Main Navigation">
+      <!-- Sidebar Header -->
+      <div class="sidebar-header">
+        <a href="#" class="sidebar-brand-link" id="sidebarBrandLink" data-tooltip="WebDev AI Studio — Home" aria-label="WebDev AI Studio — Home">
+          <div class="sidebar-logo">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <defs>
+                <linearGradient id="brandLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#2563eb" />
+                  <stop offset="100%" stop-color="#7c3aed" />
+                </linearGradient>
+              </defs>
+              <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5" stroke="url(#brandLogoGrad)" stroke-width="2" stroke-linejoin="round" fill="rgba(37, 99, 235, 0.08)"/>
+              <polyline points="12 22 12 12 2 8.5" stroke="url(#brandLogoGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <polyline points="12 12 22 8.5" stroke="url(#brandLogoGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="12" cy="12" r="2.5" fill="url(#brandLogoGrad)"/>
+            </svg>
+          </div>
+          <div class="sidebar-brand">
+            <span class="sidebar-title">WEBDEV <span class="brand-accent">AI STUDIO</span></span>
+            <span class="sidebar-subtitle">CONTROL CENTER</span>
+          </div>
+        </a>
+        <button class="sidebar-collapse-btn" id="sidebarCollapseBtn" type="button" aria-label="Collapse sidebar" data-tooltip="Collapse sidebar (⌘B)">
+          <svg class="icon-collapse" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+          <svg class="icon-expand" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+        <button class="sidebar-mobile-close-btn" id="sidebarMobileCloseBtn" type="button" aria-label="Close navigation drawer">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Sidebar Content -->
+      <div class="sidebar-content">
+        <!-- CURRENT PROJECT (Project Navigator Anchor) -->
+        <div class="sidebar-project-anchor" id="sidebarProjectAnchor">
+          <div class="project-anchor-header">
+            <span class="project-status-dot"></span>
+            <span class="project-anchor-name" id="sidebarActiveProjectName">Alpha Client Site</span>
+            <span class="project-anchor-env" id="sidebarActiveProjectEnv">LOCAL</span>
+          </div>
+          <a class="project-anchor-url font-mono truncate" id="sidebarActiveProjectUrl" href="https://example.com" target="_blank" rel="noopener noreferrer">https://example.com</a>
+          <div class="project-subnav">
+            <a href="#" class="project-subnav-item active" id="subnavOverview" data-view="dashboard">
+              <span class="subnav-bullet">●</span>
+              <span>Project Overview</span>
+            </a>
+            <a href="#" class="project-subnav-item" id="subnavBrowserLab" data-view="responsive-tester">
+              <span class="subnav-bullet">●</span>
+              <span>Browser Lab</span>
+            </a>
+            <a href="#" class="project-subnav-item" id="subnavSeo" data-view="seo-audit">
+              <span class="subnav-bullet">●</span>
+              <span>SEO Intelligence</span>
+            </a>
+            <a href="#" class="project-subnav-item" id="subnavQa" data-view="automated-qa">
+              <span class="subnav-bullet">●</span>
+              <span>Automated QA</span>
+            </a>
+            <a href="#" class="project-subnav-item" id="subnavA11y" data-view="accessibility">
+              <span class="subnav-bullet">●</span>
+              <span>Accessibility</span>
+            </a>
+            <a href="#" class="project-subnav-item" id="subnavPerf" data-view="performance">
+              <span class="subnav-bullet">●</span>
+              <span>Performance</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 1. WORKSPACE Group -->
+        <div class="nav-group">
+          <div class="nav-group-title">WORKSPACE</div>
+          <a href="#" class="nav-item active" id="navDashboard" data-view="dashboard" data-tooltip="Overview">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+              <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+              <rect x="14" y="14" width="7" height="7" rx="1"></rect>
+              <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+            </svg>
+            <span>Overview</span>
+          </a>
+          <a href="#" class="nav-item" id="navProjects" data-view="projects" data-tooltip="Projects">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+            </svg>
+            <span>Projects</span>
+          </a>
+          <a href="#" class="nav-item" id="navHistory" data-view="history" data-tooltip="Activity">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>Activity</span>
+          </a>
+        </div>
+
+        <!-- 2. BUILD Group -->
+        <div class="nav-group">
+          <div class="nav-group-title">BUILD</div>
+          <a href="#" class="nav-item" id="navDesignToCode" data-view="design-to-code" data-tooltip="Design → Code">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+            <span>Design → Code</span>
+          </a>
+          <a href="#" class="nav-item" id="navVisualCssEngineer" data-view="visual-css-engineer" data-tooltip="Visual CSS Engineer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+            <span>Visual CSS Engineer</span>
+          </a>
+          <a href="#" class="nav-item" id="navAcfArchitect" data-view="acf-architect" data-tooltip="ACF Architect">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M4 7h16"></path>
+              <path d="M4 12h16"></path>
+              <path d="M4 17h10"></path>
+            </svg>
+            <span>ACF Architect</span>
+          </a>
+          <a href="#" class="nav-item" id="navTemplateGenerator" data-view="template-generator" data-tooltip="Template Generator">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="3" y1="9" x2="21" y2="9"></line>
+              <line x1="9" y1="21" x2="9" y2="9"></line>
+            </svg>
+            <span>Template Generator</span>
+          </a>
+          <a href="#" class="nav-item" id="navSchemaGenerator" data-view="schema-generator" data-tooltip="Schema Generator">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+            <span>Schema Generator</span>
+          </a>
+          <a href="#" class="nav-item" id="navArchitectureGraph" data-view="architecture" data-tooltip="Architecture Graph">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="6" cy="6" r="3"></circle>
+              <circle cx="18" cy="6" r="3"></circle>
+              <circle cx="6" cy="18" r="3"></circle>
+              <circle cx="18" cy="18" r="3"></circle>
+              <line x1="9" y1="6" x2="15" y2="6"></line>
+              <line x1="6" y1="9" x2="6" y2="15"></line>
+              <line x1="18" y1="9" x2="18" y2="15"></line>
+              <line x1="8.5" y1="8.5" x2="15.5" y2="15.5"></line>
+            </svg>
+            <span>Architecture Graph</span>
+          </a>
+        </div>
+
+        <!-- 3. TEST Group -->
+        <div class="nav-group">
+          <div class="nav-group-title">TEST</div>
+          <a href="#" class="nav-item" id="navBrowserLab" data-view="responsive-tester" data-tooltip="Browser Lab">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+              <line x1="12" y1="18" x2="12.01" y2="18"></line>
+            </svg>
+            <span>Browser Lab</span>
+          </a>
+          <a href="#" class="nav-item" id="navAutomatedQa" data-view="automated-qa" data-tooltip="Automated QA">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 11l3 3L22 4"></path>
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+            </svg>
+            <span>Automated QA</span>
+          </a>
+          <a href="#" class="nav-item" id="navApiTester" data-view="api-tester" data-tooltip="API Tester">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+              <line x1="12" y1="3" x2="12" y2="21" stroke-dasharray="2 2"></line>
+            </svg>
+            <span>API Tester</span>
+          </a>
+        </div>
+
+        <!-- 4. ANALYZE Group -->
+        <div class="nav-group">
+          <div class="nav-group-title">ANALYZE</div>
+          <a href="#" class="nav-item" id="navSeoAudit" data-view="seo-audit" data-tooltip="SEO Intelligence">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <span>SEO Intelligence</span>
+          </a>
+          <a href="#" class="nav-item" id="navWebsiteQa" data-view="website-qa" data-tooltip="Website QA">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M9 11l3 3L22 4"></path>
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+            </svg>
+            <span>Website QA</span>
+          </a>
+          <a href="#" class="nav-item" id="navAccessibility" data-view="accessibility" data-tooltip="Accessibility">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M12 8v8"></path>
+              <path d="M8 12h8"></path>
+            </svg>
+            <span>Accessibility</span>
+          </a>
+          <a href="#" class="nav-item" id="navPerformance" data-view="performance" data-tooltip="Performance">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+            <span>Performance</span>
+          </a>
+        </div>
+
+        <!-- 5. SYSTEM Group -->
+        <div class="nav-group">
+          <div class="nav-group-title">SYSTEM</div>
+          <a href="#" class="nav-item" id="navIntegrations" data-view="settings" data-tooltip="Integrations">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+              <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+              <line x1="6" y1="6" x2="6.01" y2="6"></line>
+              <line x1="6" y1="18" x2="6.01" y2="18"></line>
+            </svg>
+            <span>Integrations</span>
+          </a>
+          <a href="#" class="nav-item" id="navHistorySystem" data-view="history" data-tooltip="History">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>History</span>
+          </a>
+          <a href="#" class="nav-item" id="navSettings" data-view="settings" data-tooltip="Settings">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+            </svg>
+            <span>Settings</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Sidebar Footer -->
+      <div class="sidebar-footer">
+        <div class="user-menu">
+          <div class="user-avatar" id="sidebarUserAvatar" data-tooltip="rajanpuri (SQLite Active)">R</div>
+          <span class="user-name" id="sidebarUserName">rajanpuri</span>
+          <span class="env-tag">SQLITE ACTIVE</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- App Main -->
+    <div class="app-main">
+      <!-- Top Header -->
+      <header class="app-header">
+        <div class="header-left">
+          <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Toggle navigation">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+          <div class="header-breadcrumb">
+            <span class="breadcrumb-root" id="breadcrumbRoot" title="WebDev AI Studio">WebDev AI Studio</span>
+            <span class="breadcrumb-sep">/</span>
+            <span class="breadcrumb-project" id="breadcrumbProject" title="Active Project">All Projects</span>
+            <span class="breadcrumb-sep">/</span>
+            <span class="breadcrumb-current" id="breadcrumbCurrent">Overview</span>
+          </div>
+        </div>
+
+        <div class="header-center">
+          <div class="search-trigger" id="searchTrigger" role="button" tabindex="0" title="Command Palette (⌘K)">
+            <div class="search-trigger-content">
+              <span class="search-sparkle">✦</span>
+              <span>Search tools, projects, commands...</span>
+            </div>
+            <span class="kbd">⌘ K</span>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <!-- Prominent Project Switcher Dropdown (IDE Style) -->
+          <div style="position: relative;" id="projectSwitcherWrapper">
+            <button class="header-project-picker-btn" id="headerProjectPickerBtn" type="button" aria-haspopup="true" aria-expanded="false" title="Switch active workspace project">
+              <span class="project-status-dot"></span>
+              <span id="headerActiveProjectName">Alpha Client Site</span>
+              <span class="picker-caret">&#9662;</span>
+            </button>
+            <div class="project-switcher-dropdown" id="projectSwitcherDropdown">
+              <input type="text" class="switcher-search-input" id="switcherSearchInput" placeholder="Search real projects..." />
+              <div class="switcher-projects-list" id="switcherProjectsList"></div>
+              <div style="margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center;">
+                <button class="btn btn-xs js-create-project" type="button">+ New Project</button>
+                <a href="#" class="font-mono text-xs js-open-projects" data-view="projects" style="color: var(--accent-primary); text-decoration: none;">Manage Projects &rarr;</a>
+              </div>
+            </div>
+            <!-- Retain hidden select for backwards selector compatibility -->
+            <select id="globalProjectSwitcher" class="global-project-select" aria-label="Active Project" style="display:none;">
+              <option value="">All Projects</option>
+            </select>
+          </div>
+
+          <!-- System Connection Status Badge -->
+          <div class="sys-status-badge font-mono" id="sysConnectionBadge" title="Playwright browser & SQLite database status">
+            <span class="sys-status-dot"></span>
+            <span class="sys-status-label">PLAYWRIGHT READY</span>
+          </div>
+
+          <!-- Theme Toggle Button -->
+          <button class="btn btn-icon js-toggle-theme" id="themeToggleBtn" type="button" title="Toggle Theme (Light / Dark)">
+            <svg class="theme-icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="theme-icon-moon" style="display:none;" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+
+          <!-- Settings Button -->
+          <button class="btn btn-icon js-open-settings" type="button" title="Settings (⌘,)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- Main Body Container -->
+      <main class="main-body">
+        <!-- View: Dashboard / Visual Developer Workspace Homepage -->
+        <div class="page-container home-workspace-container" id="viewDashboard">
+
+          <!-- ======================================================== -->
+          <!-- SECTION 1: TOP HERO / WORKSPACE                          -->
+          <!-- ======================================================== -->
+          <section class="home-hero-section">
+            <div class="home-hero-content">
+              <div class="home-hero-text">
+                <span class="home-hero-eyebrow">
+                  <span class="eyebrow-dot"></span>
+                  WEBDEV AI STUDIO
+                </span>
+                <h1 class="home-hero-title">Build. Test. Analyze. Improve.</h1>
+                <p class="home-hero-subtitle">
+                  Your complete workspace for modern website development, QA, SEO and performance.
+                </p>
+                <div class="home-hero-badges">
+                  <span class="hero-chip">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                    Visual Code Gen
+                  </span>
+                  <span class="hero-chip">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line></svg>
+                    Multi-Viewport Lab
+                  </span>
+                  <span class="hero-chip">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    Technical SEO
+                  </span>
+                  <span class="hero-chip">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                    Automated QA
+                  </span>
+                </div>
+              </div>
+
+              <!-- Right Column: Abstract Developer Workspace Visual (Browser, Code, SEO, QA, AI) -->
+              <div class="home-hero-visual-wrapper">
+                <div class="hero-visual-glow"></div>
+                <div class="hero-abstract-stack">
+                  <!-- Back layer: Miniature Browser Frame -->
+                  <div class="abstract-browser-card">
+                    <div class="abstract-card-header">
+                      <div class="abstract-dots"><span></span><span></span><span></span></div>
+                      <div class="abstract-address-bar font-mono">
+                        <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                        <span>studio.preview/app</span>
+                      </div>
+                      <span class="abstract-badge-ok font-mono">200 OK</span>
+                    </div>
+                    <div class="abstract-browser-preview">
+                      <div class="abstract-layout-wire">
+                        <div class="wire-nav">
+                          <div class="wire-brand"></div>
+                          <div class="wire-links"><span></span><span></span><span></span></div>
+                        </div>
+                        <div class="wire-hero-split">
+                          <div class="wire-hero-left">
+                            <div class="wire-line thick" style="width: 70%;"></div>
+                            <div class="wire-line" style="width: 90%;"></div>
+                            <div class="wire-btn"></div>
+                          </div>
+                          <div class="wire-hero-right">
+                            <div class="wire-box"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Middle Layer: Overlapping Floating Code Editor Panel -->
+                  <div class="abstract-code-card">
+                    <div class="code-card-header">
+                      <div class="code-tab-active font-mono">
+                        <span class="code-tab-dot"></span>
+                        <span>Component.tsx</span>
+                      </div>
+                      <span class="code-lang-tag font-mono">TSX</span>
+                    </div>
+                    <div class="code-card-body font-mono">
+                      <div class="code-line"><span class="kwd">export function</span> <span class="fn">HeroSection</span>() {</div>
+                      <div class="code-line indent-1"><span class="kwd">return</span> (</div>
+                      <div class="code-line indent-2">&lt;<span class="tag">section</span> <span class="prop">className</span>=<span class="str">"workspace-hero"</span>&gt;</div>
+                      <div class="code-line indent-3">&lt;<span class="tag">h1</span>&gt;{<span class="var">title</span>}&lt;/<span class="tag">h1</span>&gt;</div>
+                      <div class="code-line indent-3">&lt;<span class="tag">BrowserLab</span> <span class="prop">viewports</span>={[390, 1440]} /&gt;</div>
+                      <div class="code-line indent-2">&lt;/<span class="tag">section</span>&gt;</div>
+                      <div class="code-line indent-1">);</div>
+                      <div class="code-line">}</div>
+                    </div>
+                  </div>
+
+                  <!-- Floating Micro Badges -->
+                  <div class="abstract-floating-badge badge-seo">
+                    <div class="floating-badge-icon">✦</div>
+                    <div class="floating-badge-text">
+                      <span class="fb-label">SEO Audit</span>
+                      <span class="fb-value font-mono">98 / 100</span>
+                    </div>
+                  </div>
+
+                  <div class="abstract-floating-badge badge-qa">
+                    <div class="floating-badge-icon">✓</div>
+                    <div class="floating-badge-text">
+                      <span class="fb-label">Automated QA</span>
+                      <span class="fb-value font-mono">Passing (24/24)</span>
+                    </div>
+                  </div>
+
+                  <div class="abstract-floating-badge badge-device font-mono">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                    <span>393 &times; 852 &bull; 1440 &times; 900</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ======================================================== -->
+          <!-- SECTION 2: PRIMARY WEBSITE INPUT                         -->
+          <!-- ======================================================== -->
+          <section class="home-input-section">
+            <div class="home-input-card">
+              <div class="home-input-header">
+                <label for="homeWebsiteInput" class="home-input-eyebrow">WHAT ARE YOU WORKING ON?</label>
+                <span class="home-input-hint">Enter any website URL to inspect, test, or audit immediately</span>
+              </div>
+              <form class="home-input-form" id="formHomeAnalyze" onsubmit="return false;">
+                <div class="home-input-field-wrap">
+                  <div class="home-input-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                  </div>
+                  <span class="home-input-prefix font-mono">https://</span>
+                  <input 
+                    type="text" 
+                    id="homeWebsiteInput" 
+                    class="home-website-input font-mono" 
+                    placeholder="yourwebsite.com" 
+                    autocomplete="off" 
+                    spellcheck="false"
+                  />
+                  <button type="submit" class="home-analyze-btn" id="btnHomeAnalyze">
+                    <span>Analyze Website</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  </button>
+                </div>
+              </form>
+
+              <!-- Project Quick Selector Strip -->
+              <div class="home-project-quick-selector">
+                <span class="quick-selector-label">or select a project:</span>
+                <div class="quick-projects-list" id="homeQuickProjectsList">
+                  <span class="quick-loading text-xs font-mono text-muted">Checking workspace projects...</span>
+                </div>
+                <button class="quick-add-project-btn js-create-project" type="button" title="Create a new workspace project">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  New Project
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- ======================================================== -->
+          <!-- SECTION 3: QUICK WORKFLOWS ("WHAT DO YOU WANT TO DO?")   -->
+          <!-- ======================================================== -->
+          <section class="home-workflows-section">
+            <div class="section-heading-bar">
+              <div class="section-heading-left">
+                <span class="section-eyebrow">PRIMARY SUITES</span>
+                <h2 class="section-title">What do you want to do?</h2>
+              </div>
+              <span class="section-subtitle">Four core engineering disciplines integrated into a single unified workspace</span>
+            </div>
+
+            <div class="home-workflows-grid">
+              <!-- 1. BUILD: Design -> Code -->
+              <div class="workflow-card wf-build" id="wfCardDesignToCode" data-view="design-to-code">
+                <div class="wf-card-top">
+                  <div class="wf-card-meta">
+                    <span class="wf-category-pill build">BUILD</span>
+                    <span class="wf-shortcut-pill font-mono">D</span>
+                  </div>
+                  <h3 class="wf-card-title">Design &rarr; Code</h3>
+                  <p class="wf-card-desc">Turn screenshots and Figma designs into responsive, production-ready code.</p>
+                </div>
+
+                <!-- Visual Preview (~40% height) -->
+                <div class="wf-preview-area">
+                  <div class="wf-pipeline-visual">
+                    <div class="pipeline-step step-screen">
+                      <div class="mini-img-wire">
+                        <div class="mi-top"></div>
+                        <div class="mi-body">
+                          <div class="mi-rect"></div>
+                          <div class="mi-lines"><span></span><span></span></div>
+                        </div>
+                      </div>
+                      <span class="pipeline-label font-mono">Design</span>
+                    </div>
+
+                    <div class="pipeline-arrow">&rarr;</div>
+
+                    <div class="pipeline-step step-code">
+                      <div class="mini-code-box font-mono">
+                        <span class="c-tag">&lt;Hero</span>
+                        <span class="c-prop">mode=</span><span class="c-val">"pro"</span>
+                        <span class="c-tag">/&gt;</span>
+                      </div>
+                      <span class="pipeline-label font-mono">Code</span>
+                    </div>
+
+                    <div class="pipeline-arrow">&rarr;</div>
+
+                    <div class="pipeline-step step-preview">
+                      <div class="mini-preview-frame">
+                        <div class="mp-bar"></div>
+                        <div class="mp-content">
+                          <div class="mp-btn"></div>
+                        </div>
+                      </div>
+                      <span class="pipeline-label font-mono">Preview</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="wf-card-footer">
+                  <span class="wf-action-link">Open Design &rarr; Code <span class="arrow">&rarr;</span></span>
+                </div>
+              </div>
+
+              <!-- 2. TEST: Browser Lab -->
+              <div class="workflow-card wf-test" id="wfCardBrowserLab" data-view="responsive-tester">
+                <div class="wf-card-top">
+                  <div class="wf-card-meta">
+                    <span class="wf-category-pill test">TEST</span>
+                    <span class="wf-shortcut-pill font-mono">B</span>
+                  </div>
+                  <h3 class="wf-card-title">Browser Lab</h3>
+                  <p class="wf-card-desc">Test real websites across browsers, devices and responsive breakpoints.</p>
+                </div>
+
+                <!-- Visual Preview (~40% height) -->
+                <div class="wf-preview-area">
+                  <div class="wf-devices-visual">
+                    <!-- Miniature Desktop -->
+                    <div class="mini-desktop-frame">
+                      <div class="mdf-bar">
+                        <div class="mdf-dots"><span></span><span></span><span></span></div>
+                        <span class="mdf-title font-mono">1440px</span>
+                      </div>
+                      <div class="mdf-viewport">
+                        <div class="mdf-nav"></div>
+                        <div class="mdf-grid">
+                          <div class="mdf-col"></div>
+                          <div class="mdf-col"></div>
+                          <div class="mdf-col"></div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Miniature Mobile (Overlapping) -->
+                    <div class="mini-mobile-frame">
+                      <div class="mmf-notch"></div>
+                      <div class="mmf-screen">
+                        <div class="mmf-header"></div>
+                        <div class="mmf-hero"></div>
+                        <div class="mmf-card"></div>
+                      </div>
+                      <div class="mmf-badge font-mono">390px</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="wf-card-footer">
+                  <span class="wf-action-link">Open Browser Lab <span class="arrow">&rarr;</span></span>
+                </div>
+              </div>
+
+              <!-- 3. ANALYZE: SEO Intelligence -->
+              <div class="workflow-card wf-analyze" id="wfCardSeo" data-view="seo-audit">
+                <div class="wf-card-top">
+                  <div class="wf-card-meta">
+                    <span class="wf-category-pill analyze">ANALYZE</span>
+                    <span class="wf-shortcut-pill font-mono">S</span>
+                  </div>
+                  <h3 class="wf-card-title">SEO Intelligence</h3>
+                  <p class="wf-card-desc">Crawl, inspect and understand technical SEO, crawl budget, and Search Console data.</p>
+                </div>
+
+                <!-- Visual Preview (~40% height) -->
+                <div class="wf-preview-area">
+                  <div class="wf-seo-visual">
+                    <div class="seo-crawl-graph">
+                      <div class="seo-node root font-mono">/</div>
+                      <div class="seo-branches">
+                        <div class="seo-branch">
+                          <div class="seo-line"></div>
+                          <div class="seo-node sub font-mono">/about</div>
+                        </div>
+                        <div class="seo-branch">
+                          <div class="seo-line"></div>
+                          <div class="seo-node sub font-mono">/services</div>
+                        </div>
+                        <div class="seo-branch">
+                          <div class="seo-line"></div>
+                          <div class="seo-node sub font-mono">/pricing</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="seo-pills-row font-mono">
+                      <span class="seo-pill-green">100% Indexable</span>
+                      <span class="seo-pill-blue">28-day CrUX</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="wf-card-footer">
+                  <span class="wf-action-link">Open SEO Intelligence <span class="arrow">&rarr;</span></span>
+                </div>
+              </div>
+
+              <!-- 4. VERIFY: Automated QA -->
+              <div class="workflow-card wf-verify" id="wfCardAutomatedQa" data-view="automated-qa">
+                <div class="wf-card-top">
+                  <div class="wf-card-meta">
+                    <span class="wf-category-pill verify">VERIFY</span>
+                    <span class="wf-shortcut-pill font-mono">Q</span>
+                  </div>
+                  <h3 class="wf-card-title">Automated QA</h3>
+                  <p class="wf-card-desc">Run real browser-based interaction, form, accessibility and visual baseline tests.</p>
+                </div>
+
+                <!-- Visual Preview (~40% height) -->
+                <div class="wf-preview-area">
+                  <div class="wf-qa-visual font-mono">
+                    <div class="qa-check-item pass">
+                      <span class="check-icon">&#10003;</span>
+                      <span class="check-name">Broken UI &amp; Image Overflow</span>
+                      <span class="check-tag pass">PASS</span>
+                    </div>
+                    <div class="qa-check-item pass">
+                      <span class="check-icon">&#10003;</span>
+                      <span class="check-name">Interactive Nav &amp; Dropdowns</span>
+                      <span class="check-tag pass">PASS</span>
+                    </div>
+                    <div class="qa-check-item pass">
+                      <span class="check-icon">&#10003;</span>
+                      <span class="check-name">Form Validation &amp; Submits</span>
+                      <span class="check-tag pass">PASS</span>
+                    </div>
+                    <div class="qa-check-item warning">
+                      <span class="check-icon">&#9888;</span>
+                      <span class="check-name">Visual Regression Baseline</span>
+                      <span class="check-tag warn">0.3% DIFF</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="wf-card-footer">
+                  <span class="wf-action-link">Open Automated QA <span class="arrow">&rarr;</span></span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ======================================================== -->
+          <!-- SECTION 5: ACTIVE PROJECT OR ONBOARDING STATE            -->
+          <!-- ======================================================== -->
+          <section class="home-project-section" id="homeProjectSection">
+            <!-- Active Project State (Shown when user has selected / active project) -->
+            <div class="active-project-surface" id="activeProjectSurface">
+              <div class="active-project-split">
+                <!-- Left: Large Project Preview Surface -->
+                <div class="project-preview-panel">
+                  <div class="project-surface-header">
+                    <div class="ps-header-left">
+                      <span class="ps-eyebrow">YOUR ACTIVE PROJECT</span>
+                      <h3 class="project-title-large" id="heroProjectTitle">Active Project</h3>
+                    </div>
+                    <span class="hero-env-badge" id="heroEnvBadge">
+                      <span class="hero-env-dot"></span>
+                      <span id="heroEnvName">LOCAL WORKSPACE</span>
+                    </span>
+                  </div>
+
+                  <div class="project-visual-preview-box">
+                    <!-- Real Screenshot if Available -->
+                    <img id="heroScreenshotImg" class="project-real-screenshot" style="display: none;" alt="Project Visual Preview" />
+                    
+                    <!-- Elegant Project Visual Canvas when screenshot pending -->
+                    <div class="project-canvas-fallback" id="heroProjectCanvasFallback">
+                      <div class="pcf-browser-bar">
+                        <div class="pcf-dots"><span></span><span></span><span></span></div>
+                        <div class="pcf-url font-mono" id="heroPreviewAddress">example.com</div>
+                        <span class="badge font-mono" style="font-size: 10px; background: rgba(16,185,129,0.1); color: var(--status-success);">TARGET ACTIVE</span>
+                      </div>
+                      <div class="pcf-content">
+                        <div class="pcf-wireframe">
+                          <div class="pcf-wire-nav"></div>
+                          <div class="pcf-wire-hero">
+                            <div class="pcf-wire-block main"></div>
+                            <div class="pcf-wire-block side"></div>
+                          </div>
+                        </div>
+                        <div class="pcf-meta-footer">
+                          <a class="pcf-target-link font-mono" id="heroProjectUrl" href="https://example.com" target="_blank" rel="noopener noreferrer">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            <span id="heroProjectUrlText">https://example.com</span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="project-surface-actions">
+                    <button class="btn btn-primary" id="btnOpenActiveInBrowserLab" type="button">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                      Open in Browser Lab
+                    </button>
+                    <button class="btn" id="btnRunActiveQA" type="button">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                      Run Full QA
+                    </button>
+                    <button class="btn" id="btnManageProjectsView" type="button" data-view="projects">
+                      Manage Projects
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Right: Project Health Breakdown -->
+                <div class="project-health-panel">
+                  <div class="project-surface-header">
+                    <span class="ps-eyebrow">PROJECT HEALTH</span>
+                    <span class="font-mono text-xs text-muted">AUTHENTIC METRICS</span>
+                  </div>
+
+                  <div class="health-overview-badge">
+                    <div class="health-ring-wrap" style="width: 44px; height: 44px;">
+                      <div class="health-score font-mono" id="healthOverallVal" style="font-size: 13px;">--</div>
+                      <div class="health-score-lbl" style="font-size: 7px;">OVERALL</div>
+                    </div>
+                    <div class="health-summary-text">
+                      <span class="health-summary-status font-mono" id="healthSummaryStatus">Evaluating project...</span>
+                      <span class="health-summary-detail" id="healthSummaryDetail">Calculated from verified test history</span>
+                    </div>
+                  </div>
+
+                  <div class="health-meter-stack">
+                    <div class="health-stack-item">
+                      <div class="health-stack-label-row font-mono">
+                        <span class="health-stack-name">SEO</span>
+                        <span class="health-stack-value" id="healthValSeo">Not measured</span>
+                      </div>
+                      <div class="health-stack-bar">
+                        <div class="health-stack-fill" id="meterSeo" style="width: 0%;"></div>
+                      </div>
+                    </div>
+
+                    <div class="health-stack-item">
+                      <div class="health-stack-label-row font-mono">
+                        <span class="health-stack-name">ACCESSIBILITY</span>
+                        <span class="health-stack-value" id="healthValA11y">Not measured</span>
+                      </div>
+                      <div class="health-stack-bar">
+                        <div class="health-stack-fill" id="meterA11y" style="width: 0%;"></div>
+                      </div>
+                    </div>
+
+                    <div class="health-stack-item">
+                      <div class="health-stack-label-row font-mono">
+                        <span class="health-stack-name">PERFORMANCE</span>
+                        <span class="health-stack-value" id="healthValPerf">Not measured</span>
+                      </div>
+                      <div class="health-stack-bar">
+                        <div class="health-stack-fill" id="meterPerf" style="width: 0%;"></div>
+                      </div>
+                    </div>
+
+                    <div class="health-stack-item">
+                      <div class="health-stack-label-row font-mono">
+                        <span class="health-stack-name">QA</span>
+                        <span class="health-stack-value" id="healthValQa">Not measured</span>
+                      </div>
+                      <div class="health-stack-bar">
+                        <div class="health-stack-fill" id="meterQa" style="width: 0%;"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Attention required card (real incident state) -->
+                  <div class="project-attention-alert" id="dashAttentionBox" style="display: none; margin-top: 14px; padding: 10px 12px; background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.25); border-radius: 8px;">
+                    <div class="attention-header" style="display: flex; align-items: center; justify-content: space-between;">
+                      <span class="attention-title font-mono" id="dashAttentionHeading" style="font-size: 11px; font-weight: 700; color: #d97706;">Attention Items</span>
+                    </div>
+                    <p class="attention-desc" id="dashAttentionDesc" style="font-size: 11px; color: var(--text-secondary); margin: 4px 0 8px;">Unresolved test issues require review.</p>
+                    <div id="dashAttentionAction"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Onboarding State (Displayed when NO projects exist in SQLite) -->
+            <div class="no-project-onboarding-card" id="noProjectOnboardingCard" style="display: none;">
+              <div class="npo-content">
+                <div class="npo-icon">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                </div>
+                <div class="npo-text">
+                  <span class="npo-eyebrow">NO PROJECT YET</span>
+                  <h3 class="npo-title">Connect a website and start your first analysis</h3>
+                  <p class="npo-desc">Create a workspace project to monitor live URLs, run multi-viewport regression checks, and track continuous SEO &amp; QA health over time.</p>
+                </div>
+                <div class="npo-actions">
+                  <button class="btn btn-primary js-create-project" type="button">+ Create Project</button>
+                  <button class="btn" id="btnOnboardingAddWebsite" type="button">Enter URL Above</button>
+                </div>
+              </div>
+              <div class="npo-capabilities-strip">
+                <span class="npo-cap-label font-mono">YOU CAN THEN RUN:</span>
+                <div class="npo-cap-tags">
+                  <span class="npo-tag">Browser Tests</span>
+                  <span class="npo-tag">SEO Audits</span>
+                  <span class="npo-tag">Accessibility Checks</span>
+                  <span class="npo-tag">Automated QA</span>
+                  <span class="npo-tag">Design &rarr; Code</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ======================================================== -->
+          <!-- SECTION 4: TOOL ECOSYSTEM ("EXPLORE THE TOOLKIT")         -->
+          <!-- ======================================================== -->
+          <section class="home-toolkit-section">
+            <div class="section-heading-bar">
+              <div class="section-heading-left">
+                <span class="section-eyebrow">COMPLETE SYSTEM</span>
+                <h2 class="section-title">Explore the Toolkit</h2>
+              </div>
+              <span class="section-subtitle">Specialized engineering utilities organized by workflow stage</span>
+            </div>
+
+            <div class="toolkit-category-group">
+              <!-- Group 1: BUILD -->
+              <div class="toolkit-domain-card">
+                <div class="toolkit-domain-header">
+                  <div class="domain-badge-wrap">
+                    <span class="domain-dot build"></span>
+                    <span class="domain-name">BUILD</span>
+                  </div>
+                  <span class="domain-count">5 tools</span>
+                </div>
+                <div class="toolkit-tiles-grid">
+                  <a href="#" class="toolkit-tile" id="toolCardDesignToCode" data-view="design-to-code">
+                    <div class="tile-top">
+                      <span class="tile-icon-box build">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                      </span>
+                      <span class="tile-shortcut font-mono">D</span>
+                    </div>
+                    <div class="tile-name">Design &rarr; Code</div>
+                    <div class="tile-desc">Convert screenshots and Figma into responsive HTML, React, Next.js, and Vue</div>
+                    <div class="tile-hover-arrow">Open &rarr;</div>
+                  </a>
+
+                  <a href="#" class="toolkit-tile" id="toolCardVisualCss" data-view="visual-css-engineer">
+                    <div class="tile-top">
+                      <span class="tile-icon-box build">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                      </span>
+                      <span class="tile-shortcut font-mono">C</span>
+                    </div>
+                    <div class="tile-name">Visual CSS Engineer</div>
+                    <div class="tile-desc">Design directly on your code with live inspection, AI patching, and responsive verification</div>
+                    <div class="tile-hover-arrow">Open &rarr;</div>
+                  </a>
+
+                  <a href="#" class="toolkit-tile" id="toolCardAcf" data-view="acf-architect">
+                    <div class="tile-top">
+                      <span class="tile-icon-box build">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16"></path><path d="M4 12h16"></path><path d="M4 17h10"></path></svg>
+                      </span>
+                      <span class="tile-shortcut font-mono">W</span>
+                    </div>
+                    <div class="tile-name">ACF Architect</div>
+                    <div class="tile-desc">Design your WordPress content architecture. Generate the code to build it.</div>
+                    <div class="tile-hover-arrow">Open &rarr;</div>
+                  </a>
+
+                  <a href="#" class="toolkit-tile" id="toolCardTemplateGen" data-view="template-generator">
+                    <div class="tile-top">
+                      <span class="tile-icon-box build">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                      </span>
+                      <span class="tile-shortcut font-mono">T</span>
+                    </div>
+                    <div class="tile-name">Template Generator</div>
+                    <div class="tile-desc">Scaffold clean layouts, page hierarchies, and responsive container templates</div>
+                    <div class="tile-hover-arrow">Open &rarr;</div>
+                  </a>
+
+                  <a href="#" class="toolkit-tile" id="toolCardSchemaGen" data-view="schema-generator">
+                    <div class="tile-top">
+                      <span class="tile-icon-box build">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                      </span>
+                      <span class="tile-shortcut font-mono">J</span>
+                    </div>
+                    <div class="tile-name">Schema Generator</div>
+                    <div class="tile-desc">Generate JSON-LD structured data schemas for organizations, articles, and products</div>
+                    <div class="tile-hover-arrow">Open &rarr;</div>
+                  </a>
+
+                  <a href="#" class="toolkit-tile" id="toolCardArchitecture" data-view="architecture">
+                    <div class="tile-top">
+                      <span class="tile-icon-box build">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="3"></circle><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="18" r="3"></circle><line x1="9" y1="6" x2="15" y2="6"></line><line x1="6" y1="9" x2="6" y2="15"></line><line x1="18" y1="9" x2="18" y2="15"></line><line x1="8.5" y1="8.5" x2="15.5" y2="15.5"></line></svg>
+                      </span>
+                      <span class="tile-shortcut font-mono">G</span>
+                    </div>
+                    <div class="tile-name">Architecture Graph</div>
+                    <div class="tile-desc">Explore full codebase relations, impact blast radius, and optimize AI context tokens</div>
+                    <div class="tile-hover-arrow">Open &rarr;</div>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Group 2: TEST -->
+              <div class="toolkit-domain-card">
+                <div class="toolkit-domain-header">
+                  <div class="domain-badge-wrap">
+                    <span class="domain-dot test"></span>
+                    <span class="domain-name">TEST</span>
+                  </div>
+                  <span class="domain-count">3 tools</span>
+                </div>
+                <div class="toolkit-tiles-grid">
+                  <a href="#" class="toolkit-tile" id="toolResponsiveTester" data-view="responsive-tester">
+                    <div class="tile-top">
+                      <span class="tile-icon-box test">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                      </span>
+                      <span class="tile-shortcut font-mono">B</span>
+                    </div>
+                    <div class="tile-name">Browser Lab</div>
+                    <div class="tile-desc">Multi-viewport rendering, breakpoint runner, Playwright verification, and DOM inspection</div>
+                    <div class="tile-hover-arrow">Open &rarr;</div>
+                  </a>
+
+                  <a href="#" class="toolkit-tile" id="toolAutomatedQa" data-view="automated-qa">
+                    <div class="tile-top">
+                      <span class="tile-icon-box test">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                      </span>
+                      <span class="tile-shortcut font-mono">Q</span>
+                    </div>
+                    <div class="tile-name">Automated QA Suite</div>
+                    <div class="tile-desc">Execute genuine Playwright checks: interaction tests, form audits, and broken UI detection</div>
+                    <div class="tile-hover-arrow">Open &rarr;</div>
+                  </a>
+
+                  <a href="#" class="toolkit-tile" id="toolApiTester" data-view="api-tester">
+                    <div class="tile-top">
+                      <span class="tile-icon-box test">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline><line x1="12" y1="3" x2="12" y2="21" stroke-dasharray="2 2"></line></svg>
+                      </span>
+                      <span class="tile-shortcut font-mono">A</span>
+                    </div>
+                    <div class="tile-name">API Tester</div>
+                    <div class="tile-desc">Developer workbench for inspecting HTTP/REST requests, parameters, and response latency</div>
+                    <div class="tile-hover-arrow">Open &rarr;</div>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Group 3: ANALYZE -->
+              <div class="toolkit-domain-card">
+                <div class="toolkit-domain-header">
+                  <div class="domain-badge-wrap">
+                    <span class="domain-dot analyze"></span>
+                    <span class="domain-name">ANALYZE</span>
+                  </div>
+                  <span class="domain-count">4 tools</span>
+                </div>
+                <div class="toolkit-tiles-grid">
+                  <a href="#" class="toolkit-tile" id="toolSeoAudit" data-view="seo-audit">
+                    <div class="tile-top">
+                      <span class="tile-icon-box analyze">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                      </span>
+                      <span class="tile-shortcut font-mono">S</span>
+                    </div>
+                    <div class="tile-name">SEO Intelligence</div>
+                    <div class="tile-desc">Deep recursive crawler, Google Search Console, Bing Webmaster, and PageSpeed metrics</div>
+                    <div class="tile-hover-arrow">Open &rarr;</div>
+                  </a>
+
+                  <a href="#" class="toolkit-tile" id="toolWebsiteQa" data-view="website-qa">
+                    <div class="tile-top">
+                      <span class="tile-icon-box analyze">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                      </span>
+                      <span class="tile-shortcut font-mono">K</span>
+                    </div>
+                    <div class="tile-name">Website QA Scanner</div>
+                    <div class="tile-desc">Crawl website structure for broken links, missing meta, heading tree, and image assets</div>
+                    <div class="tile-hover-arrow">Open &rarr;</div>
+                  </a>
+
+                  <a href="#" class="toolkit-tile" id="toolCardA11y" data-view="accessibility">
+                    <div class="tile-top">
+                      <span class="tile-icon-box analyze">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v8"></path><path d="M8 12h8"></path></svg>
+                      </span>
+                      <span class="tile-shortcut font-mono">X</span>
+                    </div>
+                    <div class="tile-name">Accessibility Inspector</div>
+                    <div class="tile-desc">WCAG 2.1 AA audits, axe-core engine assertions, semantic landmark analysis, and contrast</div>
+                    <div class="tile-hover-arrow">Open &rarr;</div>
+                  </a>
+
+                  <a href="#" class="toolkit-tile" id="toolCardPerf" data-view="performance">
+                    <div class="tile-top">
+                      <span class="tile-icon-box analyze">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                      </span>
+                      <span class="tile-shortcut font-mono">P</span>
+                    </div>
+                    <div class="tile-name">Performance Lab</div>
+                    <div class="tile-desc">Lighthouse audit benchmarks, Core Web Vitals (LCP, CLS, INP), and CrUX field diagnostics</div>
+                    <div class="tile-hover-arrow">Open &rarr;</div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ======================================================== -->
+          <!-- SECTION 6: LIVE RECENT ACTIVITY                          -->
+          <!-- ======================================================== -->
+          <section class="home-activity-section">
+            <div class="section-heading-bar">
+              <div class="section-heading-left">
+                <span class="section-eyebrow">OBSERVABILITY</span>
+                <h2 class="section-title">Recent Activity</h2>
+              </div>
+              <div class="activity-heading-right">
+                <span class="font-mono text-xs text-muted" id="dashLastActivityText">Tracking real execution</span>
+                <a href="#" class="activity-view-all-link font-mono js-open-history" data-view="history">View All History &rarr;</a>
+              </div>
+            </div>
+
+            <div class="home-activity-surface">
+              <div class="activity-telemetry-row">
+                <div class="act-stat-item">
+                  <span class="act-stat-lbl font-mono">Total Runs:</span>
+                  <span class="act-stat-val font-mono" id="mTotalTests">0</span>
+                </div>
+                <div class="act-stat-item">
+                  <span class="act-stat-lbl font-mono" style="color: var(--status-success);">Passed:</span>
+                  <span class="act-stat-val font-mono" style="color: var(--status-success);" id="mPassedTests">0</span>
+                </div>
+                <div class="act-stat-item">
+                  <span class="act-stat-lbl font-mono" style="color: var(--status-danger);">Issues:</span>
+                  <span class="act-stat-val font-mono" style="color: var(--status-danger);" id="mFailedTests">0</span>
+                </div>
+                <!-- Sparkline trajectory -->
+                <div class="sparkline-container" id="sparklineContainer" style="width: 180px; height: 26px; margin-left: auto;">
+                  <svg class="sparkline-svg" id="sparklineSvg" viewBox="0 0 180 26" preserveAspectRatio="none">
+                    <defs>
+                      <linearGradient id="sparkGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#2563eb" stop-opacity="0.3" />
+                        <stop offset="100%" stop-color="#2563eb" stop-opacity="0.0" />
+                      </linearGradient>
+                    </defs>
+                    <path id="sparklineArea" d="" fill="url(#sparkGrad)" />
+                    <path id="sparklineLine" d="" fill="none" stroke="#2563eb" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  <div class="sparkline-nodata font-mono text-xs text-muted" id="sparklineNoData" style="display:none;">No runs yet</div>
+                </div>
+              </div>
+
+              <!-- Vertical Activity List with connected spine -->
+              <div class="home-activity-spine-list" id="dashboardActivityList">
+                <!-- Filled dynamically by DashboardMetricsController -->
+              </div>
+            </div>
+          </section>
+
+          <!-- ======================================================== -->
+          <!-- SECTION 7: "HOW IT WORKS" WORKFLOW STRIP                 -->
+          <!-- ======================================================== -->
+          <section class="home-how-it-works-section">
+            <div class="section-heading-bar">
+              <div class="section-heading-left">
+                <span class="section-eyebrow">DEVELOPER PIPELINE</span>
+                <h2 class="section-title">How It Works</h2>
+              </div>
+              <span class="section-subtitle">A unified lifecycle from initial discovery to production-ready verification</span>
+            </div>
+
+            <div class="how-it-works-strip">
+              <div class="hiw-step">
+                <div class="hiw-step-badge font-mono">01</div>
+                <div class="hiw-step-title">CONNECT</div>
+                <div class="hiw-step-desc">Connect your website</div>
+              </div>
+
+              <div class="hiw-divider-line"></div>
+
+              <div class="hiw-step">
+                <div class="hiw-step-badge font-mono">02</div>
+                <div class="hiw-step-title">ANALYZE</div>
+                <div class="hiw-step-desc">Understand the structure</div>
+              </div>
+
+              <div class="hiw-divider-line"></div>
+
+              <div class="hiw-step">
+                <div class="hiw-step-badge font-mono">03</div>
+                <div class="hiw-step-title">BUILD</div>
+                <div class="hiw-step-desc">Generate or modify</div>
+              </div>
+
+              <div class="hiw-divider-line"></div>
+
+              <div class="hiw-step">
+                <div class="hiw-step-badge font-mono">04</div>
+                <div class="hiw-step-title">TEST</div>
+                <div class="hiw-step-desc">Test in real browsers</div>
+              </div>
+
+              <div class="hiw-divider-line"></div>
+
+              <div class="hiw-step">
+                <div class="hiw-step-badge font-mono">05</div>
+                <div class="hiw-step-title">VERIFY</div>
+                <div class="hiw-step-desc">Compare and verify</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Backward-compatibility container for test suites and aliases -->
+          <div style="display:none;" aria-hidden="true">
+            <div id="projectsContainer"><div id="dashboardProjectsContainer"></div></div>
+            <span id="mTotalProjects">0</span>
+            <span id="mTotalScreenshots">0</span>
+            <span id="mTotalBaselines">0</span>
+            <button id="dashHeroBtnQa"></button>
+            <button id="dashHeroBtnBrowserLab"></button>
+            <button id="dashHeroBtnSeo"></button>
+            <button id="dashHeroBtnDesignToCode"></button>
+            <button id="dashBtnBrowserLab"></button>
+            <button id="dashBtnDesignToCode"></button>
+            <button id="dashBtnAutomatedQa"></button>
+            <button id="dashBtnSeo"></button>
+            <button id="btnRunQuickHealth"></button>
+            <p id="heroProjectDesc"></p>
+            <div id="heroBlueprint"></div>
+            <div id="sigGscIndicator"></div>
+            <div id="sigGscBadge"></div>
+          </div>
+
+        </div>
+        <!-- End View: Dashboard -->
+
+        <!-- View: Website QA Scanner -->
+        <div class="page-container qa-scanner-container" id="viewWebsiteQa" style="display: none;">
+          <!-- QA Header -->
+          <div class="dashboard-intro">
+            <h1 class="dashboard-title">Website QA Scanner</h1>
+            <p class="dashboard-subtitle">Scan a website for common technical, SEO, accessibility and structural issues.</p>
+          </div>
+
+          <!-- Scanner Input Bar -->
+          <section class="dashboard-section">
+            <div class="qa-input-bar">
+              <div class="qa-url-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+              </div>
+              <input type="url" class="qa-url-input" id="qaUrlInput" placeholder="https://example.com" autocomplete="off" spellcheck="false">
+              <button class="btn btn-primary" id="qaScanBtn" type="button">Scan Website</button>
+            </div>
+
+            <!-- Error State -->
+            <div class="qa-error-banner" id="qaError">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+              <span class="error-msg-text">An error occurred while scanning.</span>
+            </div>
+
+            <!-- Loading State -->
+            <div class="qa-loading-state" id="qaLoading">
+              <div class="qa-spinner"></div>
+              <span>Scanning website...</span>
+            </div>
+
+            <!-- Results Container -->
+            <div id="qaResults"></div>
+          </section>
+        </div>
+        <!-- View: Projects -->
+        <div class="page-container" id="viewProjects" style="display: none;">
+          <div class="dashboard-intro" style="display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;">
+            <div>
+              <h1 class="dashboard-title">Projects</h1>
+              <p class="dashboard-subtitle">Manage workspaces, audit logs, and developer assets for your websites.</p>
+            </div>
+            <button class="btn btn-primary js-create-project" type="button">+ Create Project</button>
+          </div>
+
+          <!-- Projects List -->
+          <div id="projectsListContainer"></div>
+
+          <!-- Project Detail / Workspace View -->
+          <div id="projectWorkspaceContainer" style="display: none; margin-top: var(--space-20);">
+            <div style="margin-bottom: var(--space-16); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-12);">
+              <div style="display: flex; align-items: center; gap: var(--space-12);">
+                <button class="btn btn-ghost btn-sm" id="btnBackToProjects" type="button">&larr; All Projects</button>
+                <div>
+                  <h2 class="section-title" id="workspaceProjectName" style="font-size: 18px; margin: 0;">Project Workspace</h2>
+                  <div style="display: flex; align-items: center; gap: var(--space-8); margin-top: 2px;">
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="font-mono text-muted text-xs" id="workspaceProjectUrl" style="text-decoration: underline;"></a>
+                    <span class="badge badge-subtle text-xs" id="workspaceProjectCreated"></span>
+                  </div>
+                </div>
+              </div>
+              <div style="display: flex; align-items: center; gap: var(--space-8);">
+                <button class="btn btn-secondary btn-sm" id="btnRunProjectQa" type="button">Run Website QA</button>
+                <button class="btn btn-ghost btn-sm" id="btnEditProject" type="button">Edit Project</button>
+                <button class="btn btn-danger btn-sm" id="btnDeleteProject" type="button">Delete</button>
+              </div>
+            </div>
+
+            <!-- Workspace Tabs -->
+            <div class="qa-tabs-header" id="workspaceTabs" style="margin-bottom: var(--space-20);">
+              <button class="qa-tab-btn active" data-workspace-tab="overview">Overview</button>
+              <button class="qa-tab-btn" data-workspace-tab="qa">Website QA Scans</button>
+              <button class="qa-tab-btn" data-workspace-tab="seo">SEO Audits</button>
+              <button class="qa-tab-btn" data-workspace-tab="generated">Generated Code</button>
+              <button class="qa-tab-btn" data-workspace-tab="history">Project History</button>
+            </div>
+
+            <div id="workspaceTabContent"></div>
+          </div>
+        </div>
+        <!-- End View: Projects -->
+
+        <!-- View: History -->
+        <div class="page-container" id="viewHistory" style="display: none;">
+          <div class="dashboard-intro" style="display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: var(--space-20);">
+            <div>
+              <div style="display: flex; align-items: center; gap: var(--space-10);">
+                <h1 class="dashboard-title">Activity History</h1>
+                <span class="badge badge-subtle font-mono text-xs" id="historyCountBadge">0 records</span>
+              </div>
+              <p class="dashboard-subtitle">Complete audit trail of website scans, code actions, and project updates.</p>
+            </div>
+            <button class="btn btn-ghost btn-sm text-danger" id="btnClearHistoryView" type="button">Clear History</button>
+          </div>
+
+          <!-- History Toolbar -->
+          <div class="history-toolbar">
+            <div class="history-filters">
+              <button class="history-filter-btn active" data-category="all" type="button">All Activity</button>
+              <button class="history-filter-btn" data-category="qa" type="button">Website QA</button>
+              <button class="history-filter-btn" data-category="seo" type="button">SEO Audits</button>
+              <button class="history-filter-btn" data-category="code" type="button">Code Tools</button>
+              <button class="history-filter-btn" data-category="wordpress" type="button">WordPress</button>
+              <button class="history-filter-btn" data-category="projects" type="button">Projects</button>
+            </div>
+            <div class="history-actions">
+              <input type="search" class="form-input history-search-input" id="historySearchInput" placeholder="Search history by tool, project, URL...">
+              <select class="settings-select history-sort-select" id="historySortSelect">
+                <option value="newest">Newest First</option>
+                <option value="oldest">Oldest First</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- History List Container -->
+          <div id="historyListContainer"></div>
+        </div>
+        <!-- End View: History -->
+
+        <!-- View: Settings -->
+        <div class="page-container" id="viewSettings" style="display: none;">
+          <div class="dashboard-intro">
+            <h1 class="dashboard-title">Settings</h1>
+            <p class="dashboard-subtitle">Manage appearance, editor preferences, scanner rules, and local workspace data.</p>
+          </div>
+
+          <div class="settings-container">
+            <!-- Appearance Card -->
+            <div class="settings-card">
+              <div class="settings-card-header">
+                <span class="settings-card-title">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                  </svg>
+                  Appearance
+                </span>
+              </div>
+              <div class="settings-card-body">
+                <div class="settings-row">
+                  <div class="settings-info">
+                    <span class="settings-title">Theme</span>
+                    <span class="settings-desc">Choose dark, light, or follow macOS system settings.</span>
+                  </div>
+                  <select class="settings-select" id="settingTheme">
+                    <option value="light" selected>Light (Default)</option>
+                    <option value="dark">Dark</option>
+                    <option value="system">System Preference</option>
+                  </select>
+                </div>
+
+                <div class="settings-row">
+                  <div class="settings-info">
+                    <span class="settings-title">Accent Color</span>
+                    <span class="settings-desc">Restrained accent color for focused buttons, active badges, and highlights.</span>
+                  </div>
+                  <select class="settings-select" id="settingAccent">
+                    <option value="blue">Blue (Default)</option>
+                    <option value="purple">Purple</option>
+                    <option value="green">Green</option>
+                    <option value="orange">Orange</option>
+                  </select>
+                </div>
+
+                <div class="settings-row">
+                  <div class="settings-info">
+                    <span class="settings-title">Interface Density</span>
+                    <span class="settings-desc">Adjust padding and font sizing across tables, lists, and tool bars.</span>
+                  </div>
+                  <select class="settings-select" id="settingDensity">
+                    <option value="comfortable">Comfortable</option>
+                    <option value="compact">Compact (High Information Density)</option>
+                  </select>
+                </div>
+
+                <div class="settings-row">
+                  <div class="settings-info">
+                    <span class="settings-title">Reduce Motion</span>
+                    <span class="settings-desc">Disable transitions and smooth scrolling animations across the UI.</span>
+                  </div>
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="settingReduceMotion">
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Code Preferences Card -->
+            <div class="settings-card">
+              <div class="settings-card-header">
+                <span class="settings-card-title">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                  Code &amp; Editor Preferences
+                </span>
+              </div>
+              <div class="settings-card-body">
+                <div class="settings-row">
+                  <div class="settings-info">
+                    <span class="settings-title">Editor Font Size</span>
+                    <span class="settings-desc">Size in pixels for generated code blocks and diff previews.</span>
+                  </div>
+                  <select class="settings-select" id="settingFontSize">
+                    <option value="12">12px (Small)</option>
+                    <option value="13">13px (Default)</option>
+                    <option value="14">14px (Medium)</option>
+                    <option value="16">16px (Large)</option>
+                  </select>
+                </div>
+
+                <div class="settings-row">
+                  <div class="settings-info">
+                    <span class="settings-title">Tab Size</span>
+                    <span class="settings-desc">Indentation spacing for CSS, Schema JSON, and PHP templates.</span>
+                  </div>
+                  <select class="settings-select" id="settingTabSize">
+                    <option value="2">2 Spaces</option>
+                    <option value="4">4 Spaces</option>
+                  </select>
+                </div>
+
+                <div class="settings-row">
+                  <div class="settings-info">
+                    <span class="settings-title">Word Wrap</span>
+                    <span class="settings-desc">Automatically wrap long lines in code inspector and inventory tables.</span>
+                  </div>
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="settingWordWrap" checked>
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+
+                <div class="settings-row">
+                  <div class="settings-info">
+                    <span class="settings-title">Line Numbers</span>
+                    <span class="settings-desc">Display line numbers beside syntax blocks.</span>
+                  </div>
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="settingLineNumbers" checked>
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Scanner Settings Card -->
+            <div class="settings-card">
+              <div class="settings-card-header">
+                <span class="settings-card-title">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                  </svg>
+                  Scanner Settings
+                </span>
+              </div>
+              <div class="settings-card-body">
+                <div class="settings-row">
+                  <div class="settings-info">
+                    <span class="settings-title">Request Timeout</span>
+                    <span class="settings-desc">Maximum time allowed for website connection and resource probing.</span>
+                  </div>
+                  <select class="settings-select" id="settingTimeout">
+                    <option value="5000">5 seconds</option>
+                    <option value="10000">10 seconds (Default)</option>
+                    <option value="15000">15 seconds</option>
+                    <option value="30000">30 seconds</option>
+                  </select>
+                </div>
+
+                <div class="settings-row">
+                  <div class="settings-info">
+                    <span class="settings-title">Check External Links</span>
+                    <span class="settings-desc">Perform asynchronous HEAD checks against external domains found in page.</span>
+                  </div>
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="settingCheckExternalLinks">
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+
+                <div class="settings-row">
+                  <div class="settings-info">
+                    <span class="settings-title">Store Scan History</span>
+                    <span class="settings-desc">Automatically log completed scans and scores into workspace activity history.</span>
+                  </div>
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="settingStoreScanHistory" checked>
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- SEO Data Providers Card -->
+            <div class="settings-card" id="settingsSeoProvidersCard">
+              <div class="settings-card-header" style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="settings-card-title">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
+                  SEO Intelligence &amp; Data Providers
+                </span>
+                <span class="badge badge-subtle" style="font-size: 11px; background: #e0f2fe; color: #0284c7; padding: 2px 8px; border-radius: 4px;">Zero Fake Data</span>
+              </div>
+              <div class="settings-card-body">
+                <p style="font-size: 13px; color: var(--text-muted, #64748b); margin: 0 0 16px 0;">
+                  Connect verified first-party APIs to unlock real search traffic, ranking positions, page performance, and authority metrics. Keys are encrypted and isolated per user.
+                </p>
+
+                <!-- Google Search Console -->
+                <div class="settings-row" style="align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--border-subtle, #e2e8f0);">
+                  <div class="settings-info" style="flex: 1;">
+                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                      <span class="settings-title" style="margin: 0;">Google Search Console</span>
+                      <span id="gscStatusBadge" class="badge" style="font-size: 11px; background: #f1f5f9; color: #64748b; padding: 2px 8px; border-radius: 4px;">Checking...</span>
+                    </div>
+                    <span class="settings-desc">Organic clicks, impressions, CTR, average ranking positions, and verified property queries.</span>
+                    <div id="gscPropertiesWrap" style="display: none; margin-top: 8px; font-size: 12px; color: var(--text-secondary, #475569);">
+                      <strong>Connected Properties:</strong> <span id="gscPropertiesCount">0</span>
+                    </div>
+                  </div>
+                  <div style="display: flex; gap: 8px; align-items: center;">
+                    <button class="btn btn-secondary btn-sm" id="btnConnectGsc" type="button">Connect Google Search Console</button>
+                    <button class="btn btn-outline btn-sm" id="btnSyncGsc" type="button" style="display: none;">Sync Data</button>
+                    <button class="btn btn-danger btn-sm" id="btnDisconnectGsc" type="button" style="display: none;">Disconnect</button>
+                  </div>
+                </div>
+
+                <!-- Bing Webmaster Tools -->
+                <div class="settings-row" style="align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--border-subtle, #e2e8f0);">
+                  <div class="settings-info" style="flex: 1;">
+                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                      <span class="settings-title" style="margin: 0;">Bing Webmaster Tools</span>
+                      <span id="bingStatusBadge" class="badge" style="font-size: 11px; background: #f1f5f9; color: #64748b; padding: 2px 8px; border-radius: 4px;">Checking...</span>
+                    </div>
+                    <span class="settings-desc">Bing &amp; Yahoo search metrics, crawl statistics, indexed pages, and keyword query stats.</span>
+                    <div style="margin-top: 8px; display: flex; gap: 8px; max-width: 440px;">
+                      <input type="password" id="inputBingApiKey" class="settings-input" placeholder="Enter Bing Webmaster API Key" style="font-size: 12px; font-family: monospace; flex: 1; padding: 6px 10px; border: 1px solid var(--border-subtle, #cbd5e1); border-radius: 4px;" />
+                      <button class="btn btn-secondary btn-sm" id="btnSaveBingKey" type="button">Save &amp; Test</button>
+                      <button class="btn btn-danger btn-sm" id="btnDisconnectBing" type="button" style="display: none;">Remove</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Ahrefs Public API -->
+                <div class="settings-row" style="align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--border-subtle, #e2e8f0);">
+                  <div class="settings-info" style="flex: 1;">
+                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                      <span class="settings-title" style="margin: 0;">Ahrefs (Domain Rating)</span>
+                      <span id="ahrefsStatusBadge" class="badge" style="font-size: 11px; background: #f1f5f9; color: #64748b; padding: 2px 8px; border-radius: 4px;">Checking...</span>
+                    </div>
+                    <span class="settings-desc">Ahrefs Free Public API. Attribution strictly maintained as <em>Domain Rating by Ahrefs</em>.</span>
+                    <div style="margin-top: 8px; display: flex; gap: 8px; max-width: 440px;">
+                      <input type="password" id="inputAhrefsApiKey" class="settings-input" placeholder="Enter Ahrefs API Key" style="font-size: 12px; font-family: monospace; flex: 1; padding: 6px 10px; border: 1px solid var(--border-subtle, #cbd5e1); border-radius: 4px;" />
+                      <button class="btn btn-secondary btn-sm" id="btnSaveAhrefsKey" type="button">Save &amp; Test</button>
+                      <button class="btn btn-danger btn-sm" id="btnDisconnectAhrefs" type="button" style="display: none;">Remove</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Google PageSpeed Insights -->
+                <div class="settings-row" style="align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--border-subtle, #e2e8f0);">
+                  <div class="settings-info" style="flex: 1;">
+                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                      <span class="settings-title" style="margin: 0;">Google PageSpeed Insights</span>
+                      <span id="pagespeedStatusBadge" class="badge" style="font-size: 11px; background: #f1f5f9; color: #64748b; padding: 2px 8px; border-radius: 4px;">○ Not configured</span>
+                    </div>
+                    <span class="settings-desc">Lighthouse lab diagnostics and real-world Chrome User Experience Report (CrUX) Core Web Vitals.</span>
+                    <div style="margin-top: 8px; display: flex; gap: 8px; max-width: 480px;">
+                      <input type="password" id="inputPageSpeedApiKey" class="settings-input" placeholder="Google PageSpeed API Key" style="font-size: 12px; font-family: monospace; flex: 1; padding: 6px 10px; border: 1px solid var(--border-subtle, #cbd5e1); border-radius: 4px;" />
+                      <button class="btn btn-secondary btn-sm" id="btnSavePageSpeedKey" type="button">Save &amp; Test</button>
+                      <button class="btn btn-danger btn-sm" id="btnDisconnectPageSpeed" type="button" style="display: none;">Remove</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Future Providers Placeholder -->
+                <div class="settings-row" style="align-items: flex-start; padding: 14px 0 0 0;">
+                  <div class="settings-info" style="flex: 1;">
+                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                      <span class="settings-title" style="margin: 0; color: var(--text-muted, #64748b);">Future Enterprise Providers (Semrush, DataForSEO, Moz)</span>
+                      <span class="badge" style="background: #f1f5f9; color: #64748b; font-size: 11px; padding: 2px 8px; border-radius: 4px;">Coming Soon</span>
+                    </div>
+                    <span class="settings-desc">Enterprise global keyword search volume databases, live SERP scraping, and full backlink index adapters are pre-scaffolded.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Keyboard Shortcuts Reference -->
+            <div class="settings-card">
+              <div class="settings-card-header">
+                <span class="settings-card-title">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                    <path d="M6 8h.001M10 8h.001M14 8h.001M18 8h.001M8 12h.001M12 12h.001M16 12h.001M7 16h10"></path>
+                  </svg>
+                  Keyboard Shortcuts
+                </span>
+              </div>
+              <div class="settings-card-body" style="padding: 0;">
+                <table class="qa-data-table">
+                  <thead>
+                    <tr>
+                      <th style="width: 200px;">Shortcut</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><span class="kbd">⌘K</span> / <span class="kbd">Ctrl+K</span></td>
+                      <td>Open Command Palette (search tools, projects, actions)</td>
+                    </tr>
+                    <tr>
+                      <td><span class="kbd">⌘B</span> / <span class="kbd">Ctrl+B</span></td>
+                      <td>Toggle Sidebar navigation (collapse / expand)</td>
+                    </tr>
+                    <tr>
+                      <td><span class="kbd">⌘,</span> / <span class="kbd">Ctrl+,</span></td>
+                      <td>Open Settings view</td>
+                    </tr>
+                    <tr>
+                      <td><span class="kbd">⌘Enter</span> / <span class="kbd">Ctrl+Enter</span></td>
+                      <td>Run active tool (e.g. Website QA scan)</td>
+                    </tr>
+                    <tr>
+                      <td><span class="kbd">Esc</span></td>
+                      <td>Close command palette, drawers, or open modals</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Data Management Card -->
+            <div class="settings-card">
+              <div class="settings-card-header">
+                <span class="settings-card-title text-danger">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="3 6 5 6 21 6"></polyline>
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                  </svg>
+                  Workspace Data Management
+                </span>
+              </div>
+              <div class="settings-card-body">
+                <div class="settings-row">
+                  <div class="settings-info">
+                    <span class="settings-title">Clear Activity History</span>
+                    <span class="settings-desc">Deletes all saved scan logs, tool operations, and audit records.</span>
+                  </div>
+                  <button class="btn btn-secondary btn-sm" id="btnClearHistory" type="button">Clear History</button>
+                </div>
+
+                <div class="settings-row">
+                  <div class="settings-info">
+                    <span class="settings-title">Clear All Projects</span>
+                    <span class="settings-desc">Deletes all created projects, workspaces, and associated scan logs.</span>
+                  </div>
+                  <button class="btn btn-danger btn-sm" id="btnClearProjects" type="button">Clear Projects</button>
+                </div>
+
+                <div class="settings-row">
+                  <div class="settings-info">
+                    <span class="settings-title">Reset Application Data</span>
+                    <span class="settings-desc">Clears all preferences, projects, and history, resetting studio to defaults.</span>
+                  </div>
+                  <button class="btn btn-danger btn-sm" id="btnResetAllData" type="button">Reset All Data</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Diagnostics & Playwright Environment Card -->
+            <div class="settings-card" id="settingsDiagnosticsCard">
+              <div class="settings-card-header">
+                <span class="settings-card-title">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                  </svg>
+                  Diagnostics &amp; Browser Engines
+                </span>
+                <button class="btn btn-secondary btn-xs" id="btnRefreshDiagnostics" type="button">Refresh Diagnostics</button>
+              </div>
+              <div class="settings-card-body">
+                <div class="meta-card-grid" id="diagnosticsGrid" style="grid-template-columns: repeat(3, 1fr); padding: var(--space-8) 0;">
+                  <div class="meta-field">
+                    <span class="meta-label">Node Runtime</span>
+                    <span class="meta-value font-mono" id="diagNodeVersion">v26.4.0</span>
+                  </div>
+                  <div class="meta-field">
+                    <span class="meta-label">Playwright Version</span>
+                    <span class="meta-value font-mono" id="diagPwVersion">1.63.0</span>
+                  </div>
+                  <div class="meta-field">
+                    <span class="meta-label">Chromium Engine</span>
+                    <span class="meta-value font-mono text-success" id="diagChromiumStatus">✓ Installed (v153.0)</span>
+                  </div>
+                  <div class="meta-field">
+                    <span class="meta-label">Firefox Engine</span>
+                    <span class="meta-value font-mono text-success" id="diagFirefoxStatus">✓ Installed (v155.0)</span>
+                  </div>
+                  <div class="meta-field">
+                    <span class="meta-label">Safari / WebKit</span>
+                    <span class="meta-value font-mono text-success" id="diagWebkitStatus">✓ Installed (v26.6)</span>
+                  </div>
+                  <div class="meta-field">
+                    <span class="meta-label">Microsoft Edge</span>
+                    <span class="meta-value font-mono text-muted" id="diagEdgeStatus">○ Not Installed</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- About Card -->
+            <div class="settings-card">
+              <div class="settings-card-header">
+                <span class="settings-card-title">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                  </svg>
+                  About WebDev AI Studio
+                </span>
+              </div>
+              <div class="settings-card-body">
+                <div class="meta-card-grid" style="grid-template-columns: repeat(3, 1fr); padding: var(--space-8) 0;">
+                  <div class="meta-field">
+                    <span class="meta-label">Version</span>
+                    <span class="meta-value font-mono">v1.0.0</span>
+                  </div>
+                  <div class="meta-field">
+                    <span class="meta-label">Environment</span>
+                    <span class="meta-value font-mono">Local (macOS)</span>
+                  </div>
+                  <div class="meta-field">
+                    <span class="meta-label">Domain</span>
+                    <span class="meta-value font-mono">testing-ai.local</span>
+                  </div>
+                  <div class="meta-field">
+                    <span class="meta-label">Architecture</span>
+                    <span class="meta-value">Local-first &middot; Node.js Backend</span>
+                  </div>
+                  <div class="meta-field">
+                    <span class="meta-label">Storage</span>
+                    <span class="meta-value">Browser LocalStorage</span>
+                  </div>
+                  <div class="meta-field">
+                    <span class="meta-label">QA Scanner Checks</span>
+                    <span class="meta-value font-mono">46 Deterministic Tests</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End View: Settings -->
+
+        <!-- View: Responsive Tester -->
+        <div class="page-container responsive-tester-container" id="viewResponsiveTester" style="display: none; height: 100%; padding: 0; gap: 0;">
+          <!-- Top Responsive Toolbar: 3-Row Professional Developer Layout -->
+          <div class="responsive-toolbar-container">
+            <!-- ROW 1: Navigation + URL + Load -->
+            <div class="responsive-toolbar-row row-navigation-url">
+              <div class="stage-nav-buttons">
+                <button class="btn btn-secondary btn-icon btn-sm" id="btnNavBack" type="button" title="Navigate Back" disabled>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <button class="btn btn-secondary btn-icon btn-sm" id="btnNavForward" type="button" title="Navigate Forward" disabled>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+                <button class="btn btn-secondary btn-icon btn-sm" id="btnReloadResponsive" type="button" title="Reload Webpage">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="23 4 23 10 17 10"></polyline>
+                    <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+                  </svg>
+                </button>
+              </div>
+
+              <!-- URL Input -->
+              <div class="responsive-url-bar">
+                <div class="responsive-url-input-wrap">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                  </svg>
+                  <input type="text" id="responsiveUrlInput" class="responsive-url-input font-mono" placeholder="http://testing-ai.local or https://..." autocomplete="off">
+                </div>
+                <button class="btn btn-primary btn-sm" id="btnLoadResponsiveUrl" type="button">Load</button>
+              </div>
+            </div>
+
+            <!-- ROW 2: Device + Browser + Orientation + Mode -->
+            <div class="responsive-toolbar-row row-config-engine">
+              <!-- Left: Device Picker -->
+              <div class="config-bar-item">
+                <button class="btn btn-secondary btn-sm device-picker-trigger" id="btnDevicePickerTrigger" type="button" title="Select Device Profile">
+                  <span class="device-picker-icon" id="topBarDeviceIcon">📱</span>
+                  <span class="device-picker-name" id="topBarDeviceName">iPhone 15 Pro</span>
+                  <span class="device-picker-dims font-mono" id="topBarDeviceDims">393 × 852</span>
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+              </div>
+
+              <!-- Browser Selector -->
+              <div class="config-bar-item" style="display: flex; align-items: center; gap: 6px;">
+                <span class="config-label font-mono text-xs">Engine:</span>
+                <select class="form-select form-select-sm font-mono" id="selectBrowserEngine" style="width: 175px; height: 28px; font-size: 11px;">
+                  <option value="chromium">Chrome / Chromium</option>
+                  <option value="firefox">Firefox</option>
+                  <option value="webkit">Safari / WebKit</option>
+                  <option value="edge" disabled>Microsoft Edge (Not Installed)</option>
+                </select>
+              </div>
+
+              <!-- Orientation Toggle -->
+              <div class="config-bar-item">
+                <button class="btn btn-secondary btn-sm" id="btnToggleOrientation" type="button" title="Toggle Orientation (Portrait / Landscape)">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="4" y="2" width="16" height="20" rx="2"></rect>
+                    <path d="M2 10h4M2 14h4M18 10h4M18 14h4"></path>
+                  </svg>
+                  <span id="orientationLabel">Portrait</span>
+                </button>
+              </div>
+
+              <!-- Mode Switcher: Interactive vs Playwright vs Simulation -->
+              <div class="responsive-mode-toggle" style="margin-left: auto;">
+                <button class="mode-pill active" id="btnModeInteractive" type="button" title="Interactive live webpage preview inside device viewport">
+                  <span>🌐 Interactive Preview</span>
+                </button>
+                <button class="mode-pill" id="btnModePlaywright" type="button" title="Playwright test capture with device emulation">
+                  <span>🧪 Playwright Test</span>
+                </button>
+                <button class="mode-pill" id="btnModeSimulation" type="button" title="Lightweight local viewport simulation">
+                  <span>💻 Local Simulation</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- ROW 3: Test Suites + Captures + Layout Controls -->
+            <div class="responsive-toolbar-row row-actions-suite">
+              <div class="suite-actions-group">
+                <button class="btn btn-secondary btn-sm" id="btnOpenBreakpointRunner" type="button" title="Run responsive tests across standard breakpoints">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                  Breakpoints
+                </button>
+                <button class="btn btn-secondary btn-sm" id="btnOpenBrowserMatrix" type="button" title="Compare rendering across Chromium, Firefox, and WebKit">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                  Browser Matrix
+                </button>
+                <button class="btn btn-secondary btn-sm" id="btnOpenDeviceMatrix" type="button" title="Compare rendering across Phone, Tablet, Laptop, and Desktop">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="9" height="18" rx="2"></rect><rect x="13" y="3" width="9" height="18" rx="2"></rect></svg>
+                  Device Matrix
+                </button>
+                <button class="btn btn-secondary btn-sm" id="btnOpenQaRunModal" type="button" title="Launch Phase 2 Automated QA Run">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                  Run QA
+                </button>
+              </div>
+
+              <div class="capture-actions-group" style="margin-left: auto; display: flex; align-items: center; gap: 6px;">
+                <button class="btn btn-secondary btn-sm" id="btnCaptureResponsive" type="button" title="Capture Viewport Screenshot">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                  Capture Viewport
+                </button>
+                <button class="btn btn-secondary btn-sm" id="btnCaptureFullPageTop" type="button" title="Capture Full Page Screenshot">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+                  Full Page
+                </button>
+                <button class="btn btn-secondary btn-sm" id="btnDownloadScreenshotTop" type="button" title="Download Screenshot PNG">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                  Download PNG
+                </button>
+                <button class="btn btn-primary btn-sm" id="btnOpenResponsiveReport" type="button" title="Generate Comprehensive Audit Report (Alt+R)">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                  Audit Report
+                </button>
+                <div class="toolbar-sep-vertical"></div>
+                <button class="btn btn-secondary btn-sm" id="btnMaximizePreview" type="button" title="Maximize Workspace by Collapsing Side Panels">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+                  <span id="labelMaximizePreview">Maximize Preview</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3-Column Responsive Workspace with Collapsible Panels -->
+          <div class="responsive-workspace" id="responsiveWorkspace">
+            <!-- Left Edge Expand Button (when Device Library collapsed) -->
+            <button class="edge-panel-restore edge-left" id="btnShowDeviceLibrary" type="button" title="Show Device Library" aria-label="Show device library" style="display: none;">
+              <span>› Devices</span>
+            </button>
+
+            <!-- Left: Device Library Panel -->
+            <div id="deviceSelectorContainer" class="responsive-device-panel"></div>
+
+            <!-- Center: Live Canvas Workspace (Receives Maximum Space) -->
+            <div id="devicePreviewContainer" class="responsive-canvas-workspace"></div>
+
+            <!-- Right: Viewport Controls & Details Panel -->
+            <div id="viewportControlsContainer" class="responsive-controls-panel"></div>
+
+            <!-- Right Edge Expand Button (when Details collapsed) -->
+            <button class="edge-panel-restore edge-right" id="btnShowDetails" type="button" title="Show Details Panel" aria-label="Show details panel" style="display: none;">
+              <span>Details ‹</span>
+            </button>
+          </div>
+
+          <!-- Bottom Drawer (Console, Network, Responsive Issues, Recent Tests) -->
+          <div class="responsive-bottom-drawer collapsed" id="responsiveBottomDrawer">
+            <div class="bottom-drawer-header" id="bottomDrawerHeader">
+              <div class="drawer-tabs">
+                <button class="drawer-tab-btn active" data-drawer-tab="console" type="button">
+                  Console <span class="drawer-count-badge" id="bottomConsoleCount">0</span>
+                </button>
+                <button class="drawer-tab-btn" data-drawer-tab="network" type="button">
+                  Network <span class="drawer-count-badge" id="bottomNetworkCount">0</span>
+                </button>
+                <button class="drawer-tab-btn" data-drawer-tab="issues" type="button">
+                  Responsive Issues <span class="drawer-count-badge" id="bottomIssuesCount">0</span>
+                </button>
+                <button class="drawer-tab-btn" data-drawer-tab="history" type="button">
+                  Recent Tests
+                </button>
+              </div>
+              <button class="btn-drawer-toggle" id="btnToggleBottomDrawer" type="button" title="Toggle Console / Network Drawer">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"></polyline></svg>
+              </button>
+            </div>
+            <div class="bottom-drawer-body" id="bottomDrawerBody" style="display: none;">
+              <div class="drawer-tab-pane active" id="paneDrawerConsole">
+                <div class="console-logs-list" id="consoleLogsList">
+                  <div class="tab-empty-state"><div class="empty-desc">No console messages logged.</div></div>
+                </div>
+              </div>
+              <div class="drawer-tab-pane" id="paneDrawerNetwork" style="display: none;">
+                <div class="network-errors-list" id="networkErrorsList">
+                  <div class="tab-empty-state"><div class="empty-desc">No network failures observed.</div></div>
+                </div>
+              </div>
+              <div class="drawer-tab-pane" id="paneDrawerIssues" style="display: none;">
+                <div class="drawer-issues-list" id="drawerIssuesList">
+                  <div class="tab-empty-state"><div class="empty-desc">No responsive issues recorded.</div></div>
+                </div>
+              </div>
+              <div class="drawer-tab-pane" id="paneDrawerHistory" style="display: none;">
+                <div class="drawer-history-list" id="drawerHistoryList">
+                  <div class="tab-empty-state"><div class="empty-desc">No recent responsive test history.</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End View: Responsive Tester -->
+
+        <!-- View: API Tester -->
+        <div class="page-container api-tester-container" id="viewApiTester" style="display: none; height: 100%; padding: 0; gap: 0; flex-direction: column;"></div>
+        <!-- End View: API Tester -->
+
+        <!-- View: Automated QA Suite -->
+        <div class="page-container automated-qa-container" id="viewAutomatedQa" style="display: none; height: 100%; padding: 24px 32px; gap: 20px; flex-direction: column; overflow-y: auto;"></div>
+        <!-- End View: Automated QA Suite -->
+
+        <!-- View: SEO Audit -->
+        <div class="page-container seo-audit-container" id="viewSeoAudit" style="display: none; height: 100%; padding: 24px 32px; gap: 20px; flex-direction: column; overflow-y: auto;"></div>
+        <!-- End View: SEO Audit -->
+
+        <!-- View: Design → Code Studio -->
+        <div class="page-container design-to-code-container" id="viewDesignToCode" style="display: none; height: 100%; padding: 24px 32px; gap: 20px; flex-direction: column; overflow-y: auto;"></div>
+        <!-- End View: Design → Code Studio -->
+
+        <!-- View: Profile & Account Workspace -->
+        <div class="page-container profile-workspace-container" id="viewProfile" style="display: none;"></div>
+        <!-- End View: Profile & Account Workspace -->
+
+        <!-- View: Schema Generator Workspace -->
+        <div class="page-container schema-workspace-container" id="viewSchemaGenerator" style="display: none; width: 100%; max-width: 100%;"></div>
+        <!-- End View: Schema Generator Workspace -->
+
+        <!-- View: Visual CSS Engineer Workspace -->
+        <div class="page-container visual-css-engineer-container" id="viewVisualCssEngineer" style="display: none; width: 100%; max-width: 100%;"></div>
+        <!-- End View: Visual CSS Engineer Workspace -->
+
+        <!-- View: ACF Architect Workspace -->
+        <div class="page-container acf-architect-container" id="viewAcfArchitect" style="display: none; width: 100%; max-width: 100%;"></div>
+        <!-- End View: ACF Architect Workspace -->
+
+        <!-- View: Architecture Graph Workspace -->
+        <div class="page-container architecture-graph-container" id="viewArchitecture" style="display: none; width: 100%; max-width: 100%;"></div>
+        <!-- End View: Architecture Graph Workspace -->
+      </main>
+    </div>
+  </div>
+
+  <!-- Command Palette Modal -->
+  <div class="cmd-modal-backdrop" id="cmdModal">
+    <div class="cmd-modal">
+      <div class="cmd-search-wrapper">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" class="cmd-input" id="cmdInput" placeholder="Type a command or search tools, projects..." autocomplete="off">
+        <span class="kbd">ESC</span>
+      </div>
+      <div class="cmd-results" id="cmdResults"></div>
+      <div class="cmd-footer">
+        <span>Navigation</span>
+        <div class="cmd-shortcuts">
+          <span><span class="kbd">↑</span> <span class="kbd">↓</span> to navigate</span>
+          <span><span class="kbd">↵</span> to select</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Create Project Modal -->
+  <div class="dialog-backdrop" id="projectCreateModal">
+    <div class="dialog-card">
+      <div class="dialog-header">
+        <span class="dialog-title">Create New Project</span>
+        <button class="dialog-close" id="closeCreateProjectModal" type="button" aria-label="Close">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <form id="projectCreateForm">
+        <div class="form-group" style="margin-bottom: 12px;">
+          <label class="form-label" for="modalCreateName">Project Name *</label>
+          <input type="text" id="modalCreateName" class="form-input" placeholder="e.g. Acme Redesign" required>
+        </div>
+        <div class="form-group" style="margin-bottom: 12px;">
+          <label class="form-label" for="modalCreateUrl">Target URL or Domain *</label>
+          <input type="text" id="modalCreateUrl" class="form-input font-mono" placeholder="e.g. http://testing-ai.local or https://example.com" required>
+          <span style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Only http:// and https:// URLs are allowed.</span>
+        </div>
+        <div class="form-group" style="margin-bottom: 16px;">
+          <label class="form-label" for="modalCreateDesc">Description (Optional)</label>
+          <textarea id="modalCreateDesc" class="form-input" rows="2" placeholder="Brief notes about this website or project..."></textarea>
+        </div>
+        <div class="dialog-actions">
+          <button class="btn" type="button" id="cancelCreateProjectModal">Cancel</button>
+          <button class="btn btn-primary" type="submit">Create Project</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Edit Project Modal -->
+  <div class="dialog-backdrop" id="projectEditModal">
+    <div class="dialog-card">
+      <div class="dialog-header">
+        <span class="dialog-title">Edit Project</span>
+        <button class="dialog-close" id="closeEditProjectModal" type="button" aria-label="Close">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <form id="projectEditForm">
+        <input type="hidden" id="modalEditId">
+        <div class="form-group" style="margin-bottom: 12px;">
+          <label class="form-label" for="modalEditName">Project Name *</label>
+          <input type="text" id="modalEditName" class="form-input" required>
+        </div>
+        <div class="form-group" style="margin-bottom: 12px;">
+          <label class="form-label" for="modalEditUrl">Target URL *</label>
+          <input type="text" id="modalEditUrl" class="form-input font-mono" required>
+        </div>
+        <div class="form-group" style="margin-bottom: 16px;">
+          <label class="form-label" for="modalEditDesc">Description</label>
+          <textarea id="modalEditDesc" class="form-input" rows="2"></textarea>
+        </div>
+        <div class="dialog-actions">
+          <button class="btn" type="button" id="cancelEditProjectModal">Cancel</button>
+          <button class="btn btn-primary" type="submit">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- History Detail Slide-Over Drawer -->
+  <div class="drawer-backdrop" id="historyDrawerBackdrop"></div>
+  <div class="drawer" id="historyDetailDrawer">
+    <div class="drawer-header">
+      <span class="drawer-title">Activity Details</span>
+      <button class="dialog-close" id="closeHistoryDetailDrawer" type="button" aria-label="Close">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="drawer-body" id="historyDetailBody"></div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Breakpoint Runner Modal -->
+  <div class="developer-modal" id="breakpointModal">
+    <div class="modal-backdrop" data-action="close-breakpoint-modal"></div>
+    <div class="modal-window modal-window-lg">
+      <div class="modal-header">
+        <div class="modal-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+          <span>Responsive Breakpoint Suite</span>
+          <span class="font-mono text-muted" id="breakpointTargetUrl" style="font-size: 11px; margin-left: 8px;"></span>
+        </div>
+        <button class="dialog-close" data-action="close-breakpoint-modal" type="button" aria-label="Close">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="breakpointProgressContainer" style="display: none; margin-bottom: 12px;">
+          <div style="display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 4px;">
+            <span id="breakpointStatusText" class="text-muted">Testing breakpoints...</span>
+          </div>
+          <div class="progress-bar-track" style="height: 4px; background: var(--bg-canvas); border-radius: 2px; overflow: hidden;">
+            <div id="breakpointProgressBar" style="height: 100%; width: 0%; background: var(--accent-primary); transition: width 0.2s;"></div>
+          </div>
+        </div>
+        <div id="breakpointResults"></div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary btn-sm" id="btnCopyBreakpointReport">Copy Markdown Report</button>
+        <button class="btn btn-primary btn-sm" id="btnRunBreakpointSuite">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+          Run Suite
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Device Comparison Modal -->
+  <div class="developer-modal" id="comparisonModal">
+    <div class="modal-backdrop" data-action="close-comparison-modal"></div>
+    <div class="modal-window modal-window-lg">
+      <div class="modal-header">
+        <div class="modal-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="3" width="9" height="18" rx="2"></rect>
+            <rect x="13" y="3" width="9" height="18" rx="2"></rect>
+          </svg>
+          <span>Multi-Device Comparison</span>
+          <span class="font-mono text-muted" id="comparisonUrlDisplay" style="font-size: 11px; margin-left: 8px;"></span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <button class="btn btn-secondary btn-xs" data-comparison-preset="responsive-triple">Phone + Tablet + Laptop</button>
+          <button class="btn btn-secondary btn-xs" data-comparison-preset="flagship-phones">iPhone vs Galaxy vs Pixel</button>
+          <button class="btn btn-secondary btn-xs" data-comparison-preset="desktop-pair">Desktop Res</button>
+          <label style="display: flex; align-items: center; gap: 4px; font-size: 11px; cursor: pointer; margin-left: 8px;">
+            <input type="checkbox" id="toggleSyncScroll" checked>
+            <span>Sync Scroll</span>
+          </label>
+          <button class="btn btn-secondary btn-xs" id="btnSyncReload" title="Reload All">Sync Reload</button>
+          <button class="dialog-close" data-action="close-comparison-modal" type="button" aria-label="Close">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="modal-body" style="padding: 12px; overflow-x: auto;">
+        <div class="comparison-grid" id="comparisonGrid"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screenshot Preview Modal -->
+  <div class="developer-modal" id="screenshotModal">
+    <div class="modal-backdrop" data-action="close-screenshot-modal"></div>
+    <div class="modal-window" style="max-width: 800px;">
+      <div class="modal-header">
+        <div class="modal-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+            <circle cx="12" cy="13" r="4"></circle>
+          </svg>
+          <span id="screenshotModalTitle">Viewport Capture</span>
+          <span class="font-mono text-muted" id="screenshotModalMeta" style="font-size: 11px; margin-left: 8px;"></span>
+        </div>
+        <button class="dialog-close" data-action="close-screenshot-modal" type="button" aria-label="Close">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body" style="align-items: center; justify-content: center; background: #050608; padding: 20px;">
+        <img id="screenshotModalImg" style="max-width: 100%; max-height: 65vh; object-fit: contain; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);" src="" alt="Screenshot">
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary btn-sm" data-action="close-screenshot-modal">Close</button>
+        <button class="btn btn-primary btn-sm" id="btnDownloadModalScreenshot">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          Download PNG
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Browser Matrix Modal -->
+  <div class="developer-modal" id="browserMatrixModal" style="display: none;">
+    <div class="modal-backdrop" data-action="close-browser-matrix-modal"></div>
+    <div class="modal-window" style="max-width: 950px; width: 95vw;">
+      <div class="modal-header">
+        <div class="modal-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+            <line x1="8" y1="21" x2="16" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+          </svg>
+          <span>Playwright Browser Matrix Runner</span>
+          <span class="font-mono text-muted text-xs" id="browserMatrixModalUrl" style="margin-left: 8px;"></span>
+        </div>
+        <button class="dialog-close" data-action="close-browser-matrix-modal" type="button" aria-label="Close">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body" style="padding: 16px; display: flex; flex-direction: column; gap: 14px; max-height: 80vh; overflow-y: auto;">
+        <div class="matrix-modal-topbar" style="display: flex; align-items: center; justify-content: space-between; gap: 12px; background: var(--bg-canvas); padding: 10px 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+          <div style="font-size: 12px; color: var(--text-secondary);">
+            Runs concurrent rendering across installed local engines: <strong style="color: var(--text-primary);">Chromium</strong>, <strong style="color: var(--text-primary);">Firefox</strong>, <strong style="color: var(--text-primary);">Safari / WebKit</strong>.
+          </div>
+          <button class="btn btn-primary btn-sm" id="btnRunBrowserMatrixAction" type="button">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            Run Matrix Now
+          </button>
+        </div>
+        <div id="browserMatrixResultsContainer" class="browser-matrix-grid">
+          <div class="tab-empty-state"><div class="empty-desc">Click "Run Matrix Now" to test this URL across all browser engines.</div></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary btn-sm" data-action="close-browser-matrix-modal" type="button">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Device Matrix Modal -->
+  <div class="developer-modal" id="deviceMatrixModal" style="display: none;">
+    <div class="modal-backdrop" data-action="close-device-matrix-modal"></div>
+    <div class="modal-window" style="max-width: 1050px; width: 95vw;">
+      <div class="modal-header">
+        <div class="modal-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="3" width="9" height="18" rx="2"></rect>
+            <rect x="13" y="3" width="9" height="18" rx="2"></rect>
+          </svg>
+          <span>Playwright Device Matrix Runner</span>
+          <span class="font-mono text-muted text-xs" id="deviceMatrixModalUrl" style="margin-left: 8px;"></span>
+        </div>
+        <button class="dialog-close" data-action="close-device-matrix-modal" type="button" aria-label="Close">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body" style="padding: 16px; display: flex; flex-direction: column; gap: 14px; max-height: 80vh; overflow-y: auto;">
+        <div class="matrix-modal-topbar" style="display: flex; align-items: center; justify-content: space-between; gap: 12px; background: var(--bg-canvas); padding: 10px 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+          <div style="font-size: 12px; color: var(--text-secondary);">
+            Evaluates flagship viewports (iPhone 15 Pro, Pixel 7, iPad Pro 11, Desktop 1080p) using Playwright device metrics.
+          </div>
+          <button class="btn btn-primary btn-sm" id="btnRunDeviceMatrixAction" type="button">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            Run Device Matrix
+          </button>
+        </div>
+        <div id="deviceMatrixResultsContainer" class="device-matrix-grid">
+          <div class="tab-empty-state"><div class="empty-desc">Click "Run Device Matrix" to execute concurrent multi-device testing.</div></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary btn-sm" data-action="close-device-matrix-modal" type="button">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Responsive Audit Report Modal -->
+  <div class="developer-modal" id="responsiveReportModal" style="display: none;">
+    <div class="modal-backdrop" data-action="close-responsive-report-modal"></div>
+    <div class="modal-window" style="max-width: 950px; width: 95vw;">
+      <div class="modal-header">
+        <div class="modal-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+          </svg>
+          <span>Comprehensive Responsive Audit Report</span>
+          <span class="font-mono text-muted text-xs" id="reportModalUrl" style="margin-left: 8px;"></span>
+        </div>
+        <button class="dialog-close" data-action="close-responsive-report-modal" type="button" aria-label="Close">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body" id="responsiveReportContent" style="padding: 20px; max-height: 80vh; overflow-y: auto;">
+        <!-- Dynamically generated audit report content -->
+      </div>
+      <div class="modal-footer" style="justify-content: space-between;">
+        <div style="font-size: 11px; color: var(--text-muted);" id="reportGeneratedTime"></div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <button class="btn btn-secondary btn-sm" id="btnPrintResponsiveReport" type="button">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+            Print / PDF
+          </button>
+          <button class="btn btn-secondary btn-sm" id="btnExportReportJson" type="button">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Export JSON
+          </button>
+          <button class="btn btn-primary btn-sm" data-action="close-responsive-report-modal" type="button">Done</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/client/js/services/auth-manager.js"></script>
+  <script src="/client/js/services/settings-manager.js"></script>
+  <script src="/client/js/services/project-manager.js"></script>
+  <script src="/client/js/services/history-manager.js"></script>
+  <script src="/client/js/components/auth/auth-modal.js"></script>
+  <script src="/client/js/tools/dashboard.js"></script>
+  <script src="/js/app.js"></script>
+  <script src="/client/js/tools/website-qa.js"></script>
+  <script src="/client/js/tools/projects.js"></script>
+  <script src="/client/js/tools/history.js"></script>
+  <script src="/client/js/tools/settings.js"></script>
+  <script src="/client/js/tools/profile.js"></script>
+
+  <!-- Responsive Tester State & Central Utilities -->
+  <script src="/client/js/services/responsive-state.js"></script>
+
+  <!-- Responsive Device Models & Frames -->
+  <script src="/client/js/components/devices/device-registry.js"></script>
+  <script src="/client/js/components/devices/phone-frame.js"></script>
+  <script src="/client/js/components/devices/android-frame.js"></script>
+  <script src="/client/js/components/devices/tablet-frame.js"></script>
+  <script src="/client/js/components/devices/macbook-frame.js"></script>
+  <script src="/client/js/components/devices/laptop-frame.js"></script>
+  <script src="/client/js/components/devices/desktop-frame.js"></script>
+  <script src="/client/js/components/devices/device-frame-registry.js"></script>
+  <script src="/client/js/components/devices/iphone.js"></script>
+  <script src="/client/js/components/devices/samsung.js"></script>
+  <script src="/client/js/components/devices/pixel.js"></script>
+  <script src="/client/js/components/devices/ipad.js"></script>
+  <script src="/client/js/components/devices/laptop.js"></script>
+  <script src="/client/js/components/devices/desktop.js"></script>
+
+  <!-- Responsive Tool Components -->
+  <script src="/client/js/components/responsive/device-selector.js"></script>
+  <script src="/client/js/components/responsive/device-preview.js"></script>
+  <script src="/client/js/components/responsive/viewport-controls.js"></script>
+  <script src="/client/js/components/responsive/breakpoint-runner.js"></script>
+  <script src="/client/js/components/responsive/device-comparison.js"></script>
+  <script src="/client/js/components/responsive/screenshot-gallery.js"></script>
+  <script src="/client/js/tools/responsive-tester.js"></script>
+
+  <!-- API Tester, Automated QA Suite & SEO Audit Tools -->
+  <script src="/client/js/tools/api-tester.js"></script>
+  <script src="/client/js/tools/automated-qa.js"></script>
+  <script src="/client/js/tools/seo-audit.js"></script>
+  <script src="/client/js/tools/seo-intelligence.js"></script>
+  <script src="/client/js/tools/design-to-code.js"></script>
+  <script src="/client/js/tools/schema-generator.js"></script>
+  <script src="/client/js/tools/visual-css-engineer.js"></script>
+  <script src="/client/js/tools/acf-architect.js"></script>
+  <script src="/client/js/tools/architecture-graph.js"></script>
+</body>
+</html>

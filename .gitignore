@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Architecture Graph local cache
+.graphify/
+
+# Logs
+*.log
+server.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+
+# Build / generated output
+dist/
+build/
+coverage/
+
+# Temporary files
+.tmp/
+temp/
+tmp/

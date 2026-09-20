@@ -1,0 +1,282 @@
+{
+  "1_seo_dashboard": {
+    "implemented": true,
+    "status": 200,
+    "dataPreview": {
+      "domain": "example.com",
+      "topQueriesCount": 0,
+      "recentAuditsCount": 0
+    }
+  },
+  "2_playwright_crawler": {
+    "implemented": true,
+    "auditFound": true,
+    "auditDetails": {
+      "id": "seo_bad7da2b28b6468f",
+      "url": "https://www.bkpainters.co.nz/",
+      "status": "completed",
+      "health_score": 80,
+      "pages_crawled": 25,
+      "pages_discovered": 29,
+      "duration_ms": 73840,
+      "created_at": "2026-09-18 12:55:46"
+    }
+  },
+  "3_technical_issues": {
+    "implemented": true,
+    "auditId": "seo_bad7da2b28b6468f",
+    "issuesCount": 4,
+    "issues": [
+      {
+        "code": "HTTP_STATUS_4XX",
+        "title": "Client error HTTP 404",
+        "severity": "ERROR",
+        "category": "Technical SEO",
+        "occurrences": 1
+      },
+      {
+        "code": "SECURITY_MISSING_HSTS",
+        "title": "Missing HSTS header (Strict-Transport-Security)",
+        "severity": "NOTICE",
+        "category": "Technical SEO",
+        "occurrences": 1
+      },
+      {
+        "code": "TITLE_TOO_LONG",
+        "title": "Title tag is long (66 chars)",
+        "severity": "NOTICE",
+        "category": "On-Page SEO",
+        "occurrences": 1
+      },
+      {
+        "code": "TITLE_TOO_SHORT",
+        "title": "Title tag is short (19 chars)",
+        "severity": "NOTICE",
+        "category": "On-Page SEO",
+        "occurrences": 1
+      }
+    ]
+  },
+  "4_ai_bot_blockers": {
+    "implemented": true,
+    "supportedBots": [
+      "gptbot",
+      "oai-searchbot",
+      "claude-searchbot",
+      "claudebot",
+      "perplexitybot",
+      "google-extended",
+      "cohere-ai",
+      "anthropic-ai",
+      "bytespider"
+    ],
+    "liveAuditEvaluated": {
+      "gptbot": {
+        "specified": false,
+        "allowed": true,
+        "rulesCount": 0
+      },
+      "oai-searchbot": {
+        "specified": false,
+        "allowed": true,
+        "rulesCount": 0
+      },
+      "claude-searchbot": {
+        "specified": false,
+        "allowed": true,
+        "rulesCount": 0
+      },
+      "claudebot": {
+        "specified": false,
+        "allowed": true,
+        "rulesCount": 0
+      },
+      "perplexitybot": {
+        "specified": false,
+        "allowed": true,
+        "rulesCount": 0
+      },
+      "google-extended": {
+        "specified": false,
+        "allowed": true,
+        "rulesCount": 0
+      },
+      "cohere-ai": {
+        "specified": false,
+        "allowed": true,
+        "rulesCount": 0
+      },
+      "anthropic-ai": {
+        "specified": false,
+        "allowed": true,
+        "rulesCount": 0
+      },
+      "bytespider": {
+        "specified": false,
+        "allowed": true,
+        "rulesCount": 0
+      }
+    }
+  },
+  "5_competitive_research": {
+    "implemented": true,
+    "status": 200,
+    "comparison": {
+      "targetDomain": "example.com",
+      "competitorDomain": "test.com",
+      "targetAuditFound": false,
+      "competitorAuditFound": false,
+      "authorityGap": {
+        "winner": "example.com",
+        "diff": 0,
+        "source": "Ahrefs Domain Rating"
+      },
+      "limitations": "Authority comparison uses official Ahrefs Domain Rating. Organic keyword gap and search volume require future paid intelligence provider."
+    }
+  },
+  "6_gsc_integration": {
+    "implemented": true,
+    "status": 200,
+    "connected": false,
+    "statusLabel": "disconnected",
+    "reason": "Google Search Console not connected. Connect in Settings to view verified search analytics."
+  },
+  "7_bing_integration": {
+    "implemented": true,
+    "status": 200,
+    "connected": false,
+    "available": false,
+    "message": "Bing Webmaster is not connected."
+  },
+  "8_pagespeed_api": {
+    "implemented": true,
+    "status": 200,
+    "source": "pagespeed",
+    "sourceLabel": "Google PageSpeed Insights",
+    "available": false,
+    "error": "Google PageSpeed API HTTP 429: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"Quota exceeded for quota metric 'Queries' and limit 'Queries per day' of service 'pagespeedonline.googleapis.com' for consumer 'project_number:583797351490'.\",\n    \"errors\": [\n      {\n        \"message\": \"Quota exceeded for quota metric 'Queries' and limit 'Queries per day' of service 'pagespeedonline.googleapis.com' for consumer 'project_number:583797351490'.\",\n        \"domain\": \"global\",\n        \"reason\": \"rateLimitExceeded\"\n      }\n    ],\n    \"status\": \"RESOURCE_EXHAUSTED\",\n    \"details\": [\n      {\n        \"@type\": \"type.googleapis.com/google.rpc.ErrorInfo\",\n        \"reason\": \"RATE_LIMIT_EXCEEDED\",\n        \"domain\": \"googleapis.com\",\n        \"metadata\": {\n          \"consumer\": \"projects/583797351490\",\n          \"quota_limit\": \"defaultPerDayPerProject\",\n          \"service\": \"pagespeedonline.googleapis.com\",\n          \"quota_metric\": \"pagespeedonline.googleapis.com/default\",\n          \"quota_unit\": \"1/d/{project}\",\n          \"quota_location\": \"global\",\n          \"quota_limit_value\": \"0\"\n        }\n      },\n      {\n        \"@type\": \"type.googleapis.com/google.rpc.Help\",\n        \"links\": [\n          {\n            \"description\": \"Request a higher quota limit.\",\n            \"url\": \"https://cloud.google.com/docs/quotas/help/request_increase\"\n          }\n        ]\n      }\n    ]\n  }\n}\n",
+    "hasLighthouseLab": false,
+    "hasCruxField": false
+  },
+  "9_crux": {
+    "implemented": true,
+    "available": false,
+    "cruxData": null
+  },
+  "10_ahrefs_dr": {
+    "implemented": true,
+    "status": 200,
+    "source": "ahrefs",
+    "sourceLabel": "Ahrefs",
+    "attribution": "Domain Rating by Ahrefs",
+    "available": false,
+    "limitations": "Ahrefs API key required. Configure in Settings -> SEO Data Providers."
+  },
+  "11_log_analyzer": {
+    "implemented": true,
+    "status": 200,
+    "totalLines": 7,
+    "totalBotHits": 7,
+    "statusCodes": {
+      "200": 5,
+      "404": 1,
+      "500": 1
+    }
+  },
+  "12_googlebot_detection": {
+    "detected": true,
+    "count": 2
+  },
+  "13_bingbot_detection": {
+    "detected": true,
+    "count": 2
+  },
+  "14_gptbot_detection": {
+    "detected": false,
+    "count": 0
+  },
+  "15_claudebot_detection": {
+    "detected": false,
+    "count": 0
+  },
+  "16_perplexitybot_detection": {
+    "detected": true,
+    "count": 1
+  },
+  "17_crawl_budget": {
+    "wastedCrawlEventsCount": 2,
+    "wastedSamplesCount": 2,
+    "samples": [
+      {
+        "url": "/dead-link",
+        "bot": "Googlebot Desktop",
+        "statusCode": 404,
+        "reason": "Client Error (4xx)"
+      },
+      {
+        "url": "/crash",
+        "bot": "Bingbot",
+        "statusCode": 500,
+        "reason": "Server Error (5xx)"
+      }
+    ]
+  },
+  "18_pdf_export": {
+    "implemented": true,
+    "status": 200,
+    "contentType": "application/pdf",
+    "isPdfHeaderValid": true,
+    "byteSize": 434487
+  },
+  "19_csv_export": {
+    "implemented": true,
+    "status": 200,
+    "contentType": "text/csv; charset=utf-8",
+    "lineCount": 26,
+    "headerLine": "URL,Status Code,Final URL,Indexable,Indexability Reason,Title,Title Length,Meta Description,Meta Description Length,H1,Canonical URL,Word Count,Crawl Depth,Incoming Internal Links,Outgoing Internal Links,Issues Count,Response Time (ms)\r"
+  },
+  "20_json_export": {
+    "implemented": true,
+    "status": 200,
+    "contentType": "application/json; charset=utf-8",
+    "hasAudit": true,
+    "pagesCount": 25,
+    "issuesCount": 4
+  },
+  "21_sqlite_persistence": {
+    "implemented": true,
+    "tables": {
+      "seo_audits": 15,
+      "seo_pages": 104,
+      "seo_issues": 68,
+      "seo_provider_connections": 0,
+      "seo_provider_properties": 0,
+      "seo_provider_syncs": 0,
+      "seo_search_console_metrics": 0,
+      "seo_bing_metrics": 0,
+      "seo_provider_cache": 0,
+      "seo_competitors": 2,
+      "seo_log_analyses": 8
+    }
+  },
+  "22_oauth_flow": {
+    "implemented": true,
+    "status": 400,
+    "requiresConfig": true,
+    "response": {
+      "success": false,
+      "error": "Google OAuth Client ID is not configured. Set GOOGLE_CLIENT_ID in environment.",
+      "code": "ERROR"
+    }
+  },
+  "23_api_key_storage": {
+    "implemented": true,
+    "connectResponse": {
+      "success": true,
+      "provider": "pagespeed",
+      "configured": true
+    },
+    "savedToDatabase": true,
+    "cleanupSuccessful": true
+  }
+}
