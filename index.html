@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WebDev AI Studio</title>
+  <link rel="stylesheet" href="/styles/design-tokens.css">
   <link rel="stylesheet" href="/styles/main.css">
   <link rel="stylesheet" href="/styles/home.css">
   <link rel="stylesheet" href="/styles/responsive-tester.css">
@@ -318,7 +319,10 @@
         <div class="header-center">
           <div class="search-trigger" id="searchTrigger" role="button" tabindex="0" title="Command Palette (⌘K)">
             <div class="search-trigger-content">
-              <span class="search-sparkle">✦</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
               <span>Search tools, projects, commands...</span>
             </div>
             <span class="kbd">⌘ K</span>
@@ -420,81 +424,33 @@
                 </div>
               </div>
 
-              <!-- Right Column: Abstract Developer Workspace Visual (Browser, Code, SEO, QA, AI) -->
+              <!-- Right Column: Real Developer Engine Diagnostics & Capabilities -->
               <div class="home-hero-visual-wrapper">
-                <div class="hero-visual-glow"></div>
                 <div class="hero-abstract-stack">
-                  <!-- Back layer: Miniature Browser Frame -->
-                  <div class="abstract-browser-card">
-                    <div class="abstract-card-header">
-                      <div class="abstract-dots"><span></span><span></span><span></span></div>
-                      <div class="abstract-address-bar font-mono">
-                        <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                        <span>studio.preview/app</span>
-                      </div>
-                      <span class="abstract-badge-ok font-mono">200 OK</span>
-                    </div>
-                    <div class="abstract-browser-preview">
-                      <div class="abstract-layout-wire">
-                        <div class="wire-nav">
-                          <div class="wire-brand"></div>
-                          <div class="wire-links"><span></span><span></span><span></span></div>
-                        </div>
-                        <div class="wire-hero-split">
-                          <div class="wire-hero-left">
-                            <div class="wire-line thick" style="width: 70%;"></div>
-                            <div class="wire-line" style="width: 90%;"></div>
-                            <div class="wire-btn"></div>
-                          </div>
-                          <div class="wire-hero-right">
-                            <div class="wire-box"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Middle Layer: Overlapping Floating Code Editor Panel -->
-                  <div class="abstract-code-card">
-                    <div class="code-card-header">
-                      <div class="code-tab-active font-mono">
-                        <span class="code-tab-dot"></span>
-                        <span>Component.tsx</span>
-                      </div>
-                      <span class="code-lang-tag font-mono">TSX</span>
-                    </div>
-                    <div class="code-card-body font-mono">
-                      <div class="code-line"><span class="kwd">export function</span> <span class="fn">HeroSection</span>() {</div>
-                      <div class="code-line indent-1"><span class="kwd">return</span> (</div>
-                      <div class="code-line indent-2">&lt;<span class="tag">section</span> <span class="prop">className</span>=<span class="str">"workspace-hero"</span>&gt;</div>
-                      <div class="code-line indent-3">&lt;<span class="tag">h1</span>&gt;{<span class="var">title</span>}&lt;/<span class="tag">h1</span>&gt;</div>
-                      <div class="code-line indent-3">&lt;<span class="tag">BrowserLab</span> <span class="prop">viewports</span>={[390, 1440]} /&gt;</div>
-                      <div class="code-line indent-2">&lt;/<span class="tag">section</span>&gt;</div>
-                      <div class="code-line indent-1">);</div>
-                      <div class="code-line">}</div>
-                    </div>
-                  </div>
-
-                  <!-- Floating Micro Badges -->
-                  <div class="abstract-floating-badge badge-seo">
-                    <div class="floating-badge-icon">✦</div>
+                  <div class="abstract-floating-badge">
+                    <span class="status-pip success"></span>
                     <div class="floating-badge-text">
-                      <span class="fb-label">SEO Audit</span>
-                      <span class="fb-value font-mono">98 / 100</span>
+                      <span class="fb-label">Playwright Browser Lab</span>
+                      <span class="fb-value font-mono">Chromium Ready</span>
                     </div>
                   </div>
-
-                  <div class="abstract-floating-badge badge-qa">
-                    <div class="floating-badge-icon">✓</div>
+                  <div class="abstract-floating-badge">
+                    <span class="status-pip success"></span>
                     <div class="floating-badge-text">
-                      <span class="fb-label">Automated QA</span>
-                      <span class="fb-value font-mono">Passing (24/24)</span>
+                      <span class="fb-label">SQLite Local Storage</span>
+                      <span class="fb-value font-mono">studio.db Active</span>
                     </div>
                   </div>
-
+                  <div class="abstract-floating-badge">
+                    <span class="status-pip success"></span>
+                    <div class="floating-badge-text">
+                      <span class="fb-label">AST Knowledge Graph</span>
+                      <span class="fb-value font-mono">912 Nodes &bull; 1,470 Edges</span>
+                    </div>
+                  </div>
                   <div class="abstract-floating-badge badge-device font-mono">
                     <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
-                    <span>393 &times; 852 &bull; 1440 &times; 900</span>
+                    <span>Viewports: 390 &times; 844 &bull; 768 &times; 1024 &bull; 1440 &times; 900</span>
                   </div>
                 </div>
               </div>
@@ -1867,7 +1823,9 @@
               <!-- Left: Device Picker -->
               <div class="config-bar-item">
                 <button class="btn btn-secondary btn-sm device-picker-trigger" id="btnDevicePickerTrigger" type="button" title="Select Device Profile">
-                  <span class="device-picker-icon" id="topBarDeviceIcon">📱</span>
+                  <span class="device-picker-icon" id="topBarDeviceIcon">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                  </span>
                   <span class="device-picker-name" id="topBarDeviceName">iPhone 15 Pro</span>
                   <span class="device-picker-dims font-mono" id="topBarDeviceDims">393 × 852</span>
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -1899,13 +1857,16 @@
               <!-- Mode Switcher: Interactive vs Playwright vs Simulation -->
               <div class="responsive-mode-toggle" style="margin-left: auto;">
                 <button class="mode-pill active" id="btnModeInteractive" type="button" title="Interactive live webpage preview inside device viewport">
-                  <span>🌐 Interactive Preview</span>
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                  <span>Interactive Preview</span>
                 </button>
                 <button class="mode-pill" id="btnModePlaywright" type="button" title="Playwright test capture with device emulation">
-                  <span>🧪 Playwright Test</span>
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                  <span>Playwright Test</span>
                 </button>
                 <button class="mode-pill" id="btnModeSimulation" type="button" title="Lightweight local viewport simulation">
-                  <span>💻 Local Simulation</span>
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"></rect><line x1="2" y1="20" x2="22" y2="20"></line></svg>
+                  <span>Local Simulation</span>
                 </button>
               </div>
             </div>

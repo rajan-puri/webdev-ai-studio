@@ -97,13 +97,16 @@ async function runSidebarTests() {
 
     // 5. Hover Every Icon and Verify Tooltips Outside the Sidebar
     console.log('\n>>> Test 5: Verify Floating Tooltips Outside Sidebar for All Nav Items');
+    const hasVce = await page.locator('#navVisualCssEngineer').count() > 0;
+    const hasAcf = await page.locator('#navAcfArchitect').count() > 0;
+
     const tooltipExpected = [
       { id: '#navDashboard', expected: 'Overview' },
       { id: '#navProjects', expected: 'Projects' },
       { id: '#navHistory', expected: 'Activity' },
       { id: '#navDesignToCode', expected: 'Design → Code' },
-      { id: '#navAiCss', expected: 'AI CSS' },
-      { id: '#navAcfGenerator', expected: 'ACF Generator' },
+      { id: hasVce ? '#navVisualCssEngineer' : '#navAiCss', expected: hasVce ? 'Visual CSS Engineer' : 'AI CSS' },
+      { id: hasAcf ? '#navAcfArchitect' : '#navAcfGenerator', expected: hasAcf ? 'ACF Architect' : 'ACF Generator' },
       { id: '#navTemplateGenerator', expected: 'Template Generator' },
       { id: '#navSchemaGenerator', expected: 'Schema Generator' },
       { id: '#navBrowserLab', expected: 'Browser Lab' },
@@ -295,8 +298,14 @@ async function runSidebarTests() {
       assert(isVisible, `Route ${route.id} should display ${route.viewId}`);
     }
 
-    // Tools that show toast / notifications (AI CSS, ACF, Template, Schema)
-    for (const toolId of ['#navAiCss', '#navAcfGenerator', '#navTemplateGenerator', '#navSchemaGenerator']) {
+    // Tools that show toast / notifications (AI CSS / Visual CSS, ACF, Template, Schema)
+    const extraTools = [
+      hasVce ? '#navVisualCssEngineer' : '#navAiCss',
+      hasAcf ? '#navAcfArchitect' : '#navAcfGenerator',
+      '#navTemplateGenerator',
+      '#navSchemaGenerator'
+    ];
+    for (const toolId of extraTools) {
       await page.locator(toolId).click();
       await page.waitForTimeout(80);
       const toastVisible = await page.locator('.toast').first().isVisible().catch(() => false);

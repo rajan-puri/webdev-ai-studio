@@ -751,8 +751,7 @@
   justify-content: space-between;
   gap: 12px;
   padding: 6px 14px;
-  background: rgba(18, 21, 28, 0.7);
-  backdrop-filter: blur(8px);
+  background: var(--bg-surface, #12151c);
   border-bottom: 1px solid var(--border-color, #1e2330);
   flex-shrink: 0;
   z-index: 4;
@@ -1828,8 +1827,7 @@
 .developer-modal .modal-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(4px);
+  background: rgba(15, 23, 42, 0.65);
 }
 
 .developer-modal .modal-window {
@@ -2845,8 +2843,7 @@
   margin-bottom: 12px;
   border-radius: 20px;
   font-size: 11px;
-  background: rgba(15, 23, 42, 0.82);
-  backdrop-filter: blur(8px);
+  background: rgba(15, 23, 42, 0.95);
   color: #f8fafc;
   border: 1px solid rgba(255, 255, 255, 0.14);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);

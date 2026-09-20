@@ -38,8 +38,7 @@
 .auth-modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(15, 23, 42, 0.45);
-  backdrop-filter: blur(4px);
+  background: rgba(15, 23, 42, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -49,12 +48,12 @@
 }
 
 .auth-modal-card {
-  background: var(--surface-primary, #ffffff);
-  border: 1px solid var(--border-subtle, #e2e8f0);
-  border-radius: 14px;
+  background: var(--color-surface, #ffffff);
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: var(--radius-sm, 4px);
   width: 100%;
   max-width: 440px;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-modal);
   overflow: hidden;
   animation: slideUp 0.18s ease;
 }

@@ -505,7 +505,6 @@
   right: 0;
   bottom: 0;
   background-color: var(--bg-overlay);
-  backdrop-filter: blur(4px);
   z-index: 100;
   display: none;
   align-items: flex-start;
@@ -621,7 +620,6 @@
   right: 0;
   bottom: 0;
   background-color: var(--bg-overlay);
-  backdrop-filter: blur(4px);
   z-index: 100;
   display: none;
   align-items: center;
@@ -1307,7 +1305,6 @@
   right: 0;
   bottom: 0;
   background-color: var(--bg-overlay);
-  backdrop-filter: blur(4px);
   z-index: 100;
   opacity: 0;
   visibility: hidden;
@@ -3042,7 +3039,6 @@
   border: 1px solid var(--border-subtle);
   padding: 10px 14px;
   border-radius: var(--radius-sm);
-  backdrop-filter: blur(4px);
 }
 
 [data-theme="dark"] .tech-canvas-meta-box {
@@ -3604,3 +3600,444 @@
     display: none;
   }
 }
+
+/* ==========================================================================
+   UNIFIED DEVELOPER COMPONENT SYSTEM
+   Strict adherence to: unslop-ui (70/20/10), frontend-design, UI/UX Pro Max
+   ========================================================================== */
+
+/* 1. Page Header & Section Header */
+.page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-16);
+  padding-bottom: var(--space-16);
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--space-20);
+  flex-wrap: wrap;
+}
+
+.page-header-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.page-header-eyebrow {
+  font-size: var(--text-2xs);
+  font-weight: 700;
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.page-header-title {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  line-height: var(--leading-tight);
+}
+
+.page-header-desc {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  max-width: 680px;
+  line-height: var(--leading-normal);
+}
+
+.page-header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  flex-wrap: wrap;
+}
+
+/* 2. Unified Buttons & States */
+.btn-secondary {
+  background-color: var(--color-surface-sunken);
+  border-color: var(--color-border);
+  color: var(--color-text-primary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-surface-hover);
+  border-color: var(--color-border-strong);
+}
+
+.btn-ghost {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--color-text-secondary);
+}
+
+.btn-ghost:hover {
+  background-color: var(--color-surface-hover);
+  color: var(--color-text-primary);
+  border-color: var(--color-border-subtle);
+}
+
+.btn-danger {
+  background-color: var(--color-danger);
+  border-color: var(--color-danger);
+  color: #ffffff;
+}
+
+.btn-danger:hover {
+  background-color: #dc2626;
+  border-color: #dc2626;
+}
+
+.btn-danger-subtle {
+  background-color: var(--color-danger-bg);
+  border-color: var(--color-danger-border);
+  color: var(--color-danger);
+}
+
+.btn-danger-subtle:hover {
+  background-color: rgba(239, 68, 68, 0.18);
+}
+
+.btn-xs {
+  height: 22px;
+  padding: 0 var(--space-6);
+  font-size: var(--text-2xs);
+  font-family: var(--font-mono);
+}
+
+/* 3. Form Controls & Inputs */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.form-label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-label .optional-tag {
+  font-size: var(--text-2xs);
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  color: var(--color-text-primary);
+  background-color: var(--color-surface-sunken);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 6px var(--space-10);
+  outline: none;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.form-input:hover,
+.form-select:hover,
+.form-textarea:hover {
+  border-color: var(--color-border-strong);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--color-border-focus);
+  background-color: var(--color-surface);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--color-text-muted);
+  opacity: 0.7;
+}
+
+.form-input.font-mono,
+.form-textarea.font-mono {
+  font-family: var(--font-mono);
+  font-size: var(--code-font-size);
+}
+
+.form-hint {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.form-error {
+  font-size: var(--text-xs);
+  color: var(--color-danger);
+}
+
+/* 4. Badges & Status Indicators */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--text-2xs);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface-sunken);
+  color: var(--color-text-secondary);
+  line-height: 1.2;
+}
+
+.badge-build {
+  background-color: var(--color-accent-build-subtle);
+  border-color: var(--color-accent-build-border);
+  color: var(--color-accent-build);
+}
+
+.badge-test {
+  background-color: var(--color-accent-test-subtle);
+  border-color: var(--color-accent-test-border);
+  color: var(--color-accent-test);
+}
+
+.badge-analyze {
+  background-color: var(--color-accent-analyze-subtle);
+  border-color: var(--color-accent-analyze-border);
+  color: var(--color-accent-analyze);
+}
+
+.badge-system {
+  background-color: var(--color-accent-system-subtle);
+  border-color: var(--color-accent-system-border);
+  color: var(--color-accent-system);
+}
+
+.badge-success {
+  background-color: var(--color-success-bg);
+  border-color: var(--color-success-border);
+  color: var(--color-success);
+}
+
+.badge-warning {
+  background-color: var(--color-warning-bg);
+  border-color: var(--color-warning-border);
+  color: var(--color-warning);
+}
+
+.badge-danger {
+  background-color: var(--color-danger-bg);
+  border-color: var(--color-danger-border);
+  color: var(--color-danger);
+}
+
+.status-pip {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.status-pip.success { background-color: var(--color-success); }
+.status-pip.warning { background-color: var(--color-warning); }
+.status-pip.danger { background-color: var(--color-danger); }
+.status-pip.info { background-color: var(--color-info); }
+.status-pip.muted { background-color: var(--color-text-muted); }
+
+/* 5. Clean Developer Tabs */
+.workspace-tabs {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+  padding: 0;
+  margin-bottom: var(--space-16);
+}
+
+.workspace-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+  margin-bottom: -1px;
+}
+
+.workspace-tab-btn:hover {
+  color: var(--color-text-primary);
+}
+
+.workspace-tab-btn.active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* 6. Data Tables (High Density, Pure Readability) */
+.data-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+  text-align: left;
+}
+
+.data-table th {
+  padding: 8px 12px;
+  background-color: var(--color-surface-sunken);
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--color-border);
+  white-space: nowrap;
+}
+
+.data-table td {
+  padding: 8px 12px;
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid var(--color-border-subtle);
+  vertical-align: middle;
+}
+
+.data-table tr:last-child td {
+  border-bottom: none;
+}
+
+.data-table tr:hover td {
+  background-color: var(--color-surface-hover);
+  color: var(--color-text-primary);
+}
+
+/* 7. Actionable Empty States (Zero slop illustrations) */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-40) var(--space-20);
+  background-color: var(--color-surface);
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  gap: var(--space-12);
+}
+
+.empty-state-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface-sunken);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+}
+
+.empty-state-title {
+  font-size: var(--text-md);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.empty-state-desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  max-width: 420px;
+  line-height: var(--leading-normal);
+}
+
+.empty-state-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  margin-top: var(--space-4);
+}
+
+/* 8. Skeletons */
+.skeleton {
+  background: var(--color-surface-sunken);
+  border-radius: var(--radius-xs);
+  animation: skeleton-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.skeleton-text {
+  height: 12px;
+  margin-bottom: 6px;
+}
+
+.skeleton-box {
+  width: 100%;
+  height: 80px;
+}
+
+/* 9. Panels & Cards */
+.panel {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-header {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-surface-sunken);
+}
+
+.panel-title {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-family: var(--font-mono);
+  color: var(--color-text-secondary);
+}
+
+.panel-body {
+  padding: var(--space-16);
+  flex: 1;
+}
+
+.panel-footer {
+  padding: 10px 14px;
+  border-top: 1px solid var(--color-border);
+  background-color: var(--color-surface-sunken);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-8);
+}
+
